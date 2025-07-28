@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>InLove</title>
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="./favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="./favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="./favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="./favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="./favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="./favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="./favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./favicon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./favicon/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="./favicon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./favicon/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="./favicon/ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <!-- Font Dancing Script -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Reset Css -->
+    <link rel="stylesheet" href="./assess/css/reset.css" />
+    <!-- Style Css -->
+    <link rel="stylesheet" href="./assess/css/style.css" />
+    <!-- Flatpickr CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+    <!-- Animate.css -->
+    <!-- Animate.css v4 CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- CDN FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+      integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header-top">
+          <a href="#!" class="logo-link">
+            <span class="logo-name">Inlove</span>
+          </a>
+          <nav class="navigation-bar">
+            <ul class="nav-item">
+              <li class="item"><a href="#home" class="item-link">Home</a></li>
+              <li class="item">
+                <a href="#info" class="item-link">About Us</a>
+              </li>
+              <li class="item">
+                <a href="#diary" class="item-link">Our Story</a>
+              </li>
+              <li class="item"><a href="#quote" class="item-link">Quote</a></li>
+              <li class="item">
+                <a href="#gallery" class="item-link">Gallery</a>
+              </li>
+            </ul>
+          </nav>
+          <a href="#contact" class="btn header__cta">Send Message</a>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="hero" id="home" data-animate="animate__backInLeft">
+        <div class="container">
+          <div class="hero__inner">
+            <p class="hero__title">Been Together...</p>
+            <label for="startDateInput">
+              <div class="hero__circle" id="circleDate">
+                <span class="circle__count" id="daysCount"></span>
+                <p class="circle__day">Days</p>
+              </div>
+            </label>
+            <div class="hero__list">
+              <!-- Person 1 -->
+              <div class="hero__person">
+                <figure class="hero__img-wrap">
+                  <img
+                    src="./assess/img/Long.jpg"
+                    alt=""
+                    class="hero__person-avt hero__person-avt-male"
+                  />
+                </figure>
+                <p class="hero__person-name">Nguyen Thanh Long</p>
+              </div>
+              <div class="lds-heart"><div></div></div>
+              <!-- Person 2 -->
+              <div class="hero__person">
+                <figure class="hero__img-wrap">
+                  <img
+                    src="./assess/img/Huyen.jpg"
+                    alt=""
+                    class="hero__person-avt hero__person-avt-female"
+                  />
+                </figure>
+                <p class="hero__person-name">Tran Thu Huyen</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="info" id="info" data-animate="animate__fadeInRightBig">
+        <div class="container">
+          <h2 class="heading-section">About Us</h2>
+          <div class="info__switch-wrap">
+            <div class="info__switch-inner">
+              <div class="info__switch">
+                <input
+                  type="checkbox"
+                  name=""
+                  id="info-switch"
+                  class="info__switch-input"
+                  hidden
+                />
+                <label for="info-switch" class="info__switch-label">
+                  <span class="info__switch-value girl">
+                    Huyen
+                    <img src="./assess/icon/girl.png" alt="" class="girl-icon"
+                  /></span>
+                  <span class="info__switch-value boy">
+                    Long
+                    <img src="./assess/icon/man.png" alt="" class="girl-icon" />
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <!--  -->
+            <div class="info__inner info__inner-huyen">
+              <div class="info__media">
+                <figure class="info__media-wrap">
+                  <img
+                    src="./assess/img/Huyen.jpg"
+                    alt=""
+                    class="info__media-img animate__animated animate__tada"
+                  />
+                  <p class="info__media-name">
+                    <span
+                      ><img
+                        src="./assess/icon/flower.png"
+                        alt=""
+                        class="info__media-decor-small"
+                    /></span>
+                    Huyen
+                    <span
+                      ><img
+                        src="./assess/icon/flower.png"
+                        alt=""
+                        class="info__media-decor-small"
+                    /></span>
+                  </p>
+                  <!-- Decor -->
+                  <img
+                    src="./assess/icon/heart-box.png"
+                    alt=""
+                    class="info__media-decor"
+                  />
+                  <img
+                    src="./assess/icon/Cauvong.png"
+                    alt=""
+                    class="info__media-decor"
+                  />
+                  <div class="info__card">
+                    <figure class="info__card-avt-wrap">
+                      <img
+                        src="./assess/img/Huyen3.jpg"
+                        alt=""
+                        class="info__card-avt"
+                      />
+                    </figure>
+                    <div class="info__card-detail">
+                      <p class="info__card-name">MiniBoo</p>
+                      <p class="info__card-desc">Pisces</p>
+                      <p class="info__card-desc">02/03/2003</p>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="info__content">
+                <h3 class="info__heading">Love Material</h3>
+                <div class="info__list">
+                  <h4 class="info__item-heading">Acts of Service</h4>
+                  <div class="info__skill-progress" data-progress="70%"></div>
+                  <h4 class="info__item-heading">Quality Time</h4>
+                  <div class="info__skill-progress" data-progress="100%"></div>
+                  <h4 class="info__item-heading">Words of affirmation</h4>
+                  <div class="info__skill-progress" data-progress="10%"></div>
+                  <h4 class="info__item-heading">Receiving gifts</h4>
+                  <div class="info__skill-progress" data-progress="90%"></div>
+                  <h4 class="info__item-heading">Physical touch</h4>
+                  <div class="info__skill-progress" data-progress="70%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="info__inner info__inner-long">
+              <div class="info__media">
+                <figure class="info__media-wrap">
+                  <img
+                    src="./assess/img/Long.jpg"
+                    alt=""
+                    class="info__media-img animate__animated animate__tada"
+                  />
+                  <p class="info__media-name">
+                    <span
+                      ><img
+                        src="./assess/icon/sparkles.png"
+                        alt=""
+                        class="info__media-decor-small"
+                    /></span>
+                    Long
+                    <span
+                      ><img
+                        src="./assess/icon/sparkles.png"
+                        alt=""
+                        class="info__media-decor-small"
+                    /></span>
+                  </p>
+                  <img
+                    src="./assess/icon/heart-box.png"
+                    alt=""
+                    class="info__media-decor"
+                  />
+                  <img
+                    src="./assess/icon/Cauvong.png"
+                    alt=""
+                    class="info__media-decor"
+                  />
+                  <div class="info__card">
+                    <figure class="info__card-avt-wrap">
+                      <img
+                        src="./assess/img/Long5.jpg"
+                        alt=""
+                        class="info__card-avt"
+                      />
+                    </figure>
+                    <div class="info__card-detail">
+                      <p class="info__card-name">Zin</p>
+                      <p class="info__card-desc">Taurus</p>
+                      <p class="info__card-desc">18/05/2004</p>
+                    </div>
+                  </div>
+                </figure>
+              </div>
+              <div class="info__content">
+                <h3 class="info__heading">Love Material</h3>
+                <div class="info__list">
+                  <h4 class="info__item-heading">Acts of Service</h4>
+                  <div class="info__skill-progress" data-progress="80%"></div>
+                  <h4 class="info__item-heading">Quality Time</h4>
+                  <div class="info__skill-progress" data-progress="80%"></div>
+                  <h4 class="info__item-heading">Words of affirmation</h4>
+                  <div class="info__skill-progress" data-progress="70%"></div>
+                  <h4 class="info__item-heading">Receiving gifts</h4>
+                  <div class="info__skill-progress" data-progress="70%"></div>
+                  <h4 class="info__item-heading">Physical touch</h4>
+                  <div class="info__skill-progress" data-progress="80%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="diary" id="diary" data-animate="animate__zoomInUp">
+        <div class="container">
+          <h2 class="heading-section">Our Diary</h2>
+          <p class="gallery__desc diary__desc">
+            This diary captures the precious milestones of our love — from the
+            first message to every sweet moment we’ve shared along the way
+          </p>
+          <div class="diary__list animate__animated animate__zoomInUp">
+            <!-- Card 1 -->
+            <article class="diary__card">
+              <div class="diary__card-inner">
+                <div class="diary__card-front">
+                  <figure diary__card-wrap>
+                    <img
+                      src="./assess/icon/favourite (1).png"
+                      alt=""
+                      class="diary__card-img"
+                    />
+                  </figure>
+                  <p class="diary__card-day">25/03/2025</p>
+                  <h3 class="diary__card-heading">Tin Nhắn Đầu Tiên</h3>
+                  <p class="diary__card-desc">Ngày đầu tiên nhắn tin</p>
+                </div>
+                <div class="diary__card-back">
+                  <img
+                    src="./assess/img/FirstMessage.jpg"
+                    alt=""
+                    class="diary__preview-img"
+                  />
+                </div>
+              </div>
+            </article>
+            <article class="diary__card">
+              <div class="diary__card-inner">
+                <div class="diary__card-front">
+                  <figure diary__card-wrap>
+                    <img
+                      src="./assess/icon/handshake.png"
+                      alt=""
+                      class="diary__card-img"
+                    />
+                  </figure>
+                  <p class="diary__card-day">28/04/2025</p>
+                  <h3 class="diary__card-heading">Lần đầu gặp nhau</h3>
+                  <p class="diary__card-desc">Đi Canopy</p>
+                </div>
+                <div class="diary__card-back">
+                  <img
+                    src="./assess/img/FirstDay.jpg"
+                    alt=""
+                    class="diary__preview-img"
+                  />
+                </div>
+              </div>
+            </article>
+            <article class="diary__card">
+              <div class="diary__card-inner">
+                <div class="diary__card-front">
+                  <figure diary__card-wrap>
+                    <img
+                      src="./assess/icon/anniversary.png"
+                      alt=""
+                      class="diary__card-img"
+                    />
+                  </figure>
+                  <p class="diary__card-day">18/05/2025</p>
+                  <h3 class="diary__card-heading">Sinh Nhật Đầu Tiên</h3>
+                  <p class="diary__card-desc">My BirthDay</p>
+                </div>
+                <div class="diary__card-back">
+                  <video
+                    class="diary__preview-video"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    controls
+                  >
+                    <source src="./assess/img/HappyBirthDay.mp4" />
+                  </video>
+                </div>
+              </div>
+            </article>
+            <article class="diary__card">
+              <div class="diary__card-inner">
+                <div class="diary__card-front">
+                  <figure diary__card-wrap>
+                    <img
+                      src="./assess/icon/couple.png"
+                      alt=""
+                      class="diary__card-img"
+                    />
+                  </figure>
+                  <p class="diary__card-day">25/05/2025</p>
+                  <h3 class="diary__card-heading">Ngày đầu yêu</h3>
+                  <p class="diary__card-desc">The Day We Love</p>
+                </div>
+                <div class="diary__card-back">
+                  <img
+                    src="./assess/img/TheDayWeLove.jpg"
+                    alt=""
+                    class="diary__preview-img"
+                  />
+                </div>
+              </div>
+            </article>
+            <article class="diary__card">
+              <div class="diary__card-inner">
+                <div class="diary__card-front">
+                  <figure diary__card-wrap>
+                    <img
+                      src="./assess/icon/sun.png"
+                      alt=""
+                      class="diary__card-img"
+                    />
+                  </figure>
+                  <p class="diary__card-day">29/05/2025</p>
+                  <h3 class="diary__card-heading">Sweetie</h3>
+                  <p class="diary__card-desc">Đáng yêu vkl</p>
+                </div>
+                <div class="diary__card-back">
+                  <img
+                    src="./assess/img/Sweet.jpg"
+                    alt=""
+                    class="diary__preview-img"
+                  />
+                </div>
+              </div>
+            </article>
+            <article class="diary__card">
+              <div class="diary__card-inner">
+                <div class="diary__card-front">
+                  <figure diary__card-wrap>
+                    <img
+                      src="./assess/icon/couple.png"
+                      alt=""
+                      class="diary__card-img"
+                    />
+                  </figure>
+                  <p class="diary__card-day">04/06/2025</p>
+                  <h3 class="diary__card-heading">Rainy day in Sapa</h3>
+                  <p class="diary__card-desc">Cafe Bao Cấp</p>
+                </div>
+                <div class="diary__card-back">
+                  <img
+                    src="./assess/img/4_6Sapa.jpg"
+                    alt=""
+                    class="diary__preview-img"
+                  />
+                </div>
+              </div>
+            </article>
+            <article class="diary__card">
+              <div class="diary__card-inner">
+                <div class="diary__card-front">
+                  <figure diary__card-wrap>
+                    <img
+                      src="./assess/icon/couple.png"
+                      alt=""
+                      class="diary__card-img"
+                    />
+                  </figure>
+                  <p class="diary__card-day">21/06/2025</p>
+                  <h3 class="diary__card-heading">Universal</h3>
+                  <p class="diary__card-desc">Hold your hand</p>
+                </div>
+                <div class="diary__card-back">
+                  <img
+                    src="./assess/img/21_6.jpg"
+                    alt=""
+                    class="diary__preview-img"
+                  />
+                </div>
+              </div>
+            </article>
+            <article class="diary__card">
+              <div class="diary__card-inner">
+                <div class="diary__card-front">
+                  <figure diary__card-wrap>
+                    <img
+                      src="./assess/icon/calendar.png"
+                      alt=""
+                      class="diary__card-img"
+                    />
+                  </figure>
+                  <p class="diary__card-day">25/06/2025</p>
+                  <h3 class="diary__card-heading">First Month</h3>
+                  <p class="diary__card-desc">1st Month</p>
+                </div>
+                <div class="diary__card-back">
+                  <img
+                    src="./assess/img/1month.jpg"
+                    alt=""
+                    class="diary__preview-img"
+                  />
+                </div>
+              </div>
+            </article>
+            <article class="diary__card">
+              <div class="diary__card-inner">
+                <div class="diary__card-front">
+                  <figure diary__card-wrap>
+                    <img
+                      src="./assess/icon/calendar.png"
+                      alt=""
+                      class="diary__card-img"
+                    />
+                  </figure>
+                  <p class="diary__card-day">25/07/2025</p>
+                  <h3 class="diary__card-heading">2 Months</h3>
+                  <p class="diary__card-desc">2 Month with Graduation</p>
+                </div>
+                <div class="diary__card-back">
+                  <img
+                    src="./assess/img/2month.jpg"
+                    alt=""
+                    class="diary__preview-img"
+                  />
+                </div>
+              </div>
+            </article>
+          </div>
+          <a href="" class="btn diary__btn" title="Chưa hoàn thiện">Add More</a>
+        </div>
+      </section>
+      <section class="quote" id="quote" data-animate="animate__jackInTheBox">
+        <div class="quote__header">
+          <svg
+            viewBox="0 0 1440 320"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+            class="quote__wave"
+          >
+            <path
+              fill="#ffffff"
+              d="M0,160 C480,260 960,60 1440,160 L1440,320 L0,320 Z"
+            ></path>
+          </svg>
+          <img src="./assess/icon/quotation.png" alt="" class="quote__icon" />
+        </div>
+        <div class="container">
+          <div class="quote__content">
+            <p class="quote__text"></p>
+          </div>
+          <p class="quote__author"></p>
+        </div>
+      </section>
+      <section class="gallery" id="gallery" data-animate="animate__rollIn">
+        <div class="container">
+          <h2 class="heading-section gallery__heading">Gallery</h2>
+          <p class="gallery__desc">
+            Every photo captures a heartbeat of love — moments that shaped our
+            journey together.
+          </p>
+
+          <div class="gallery__content">
+            <nav class="gallery__nav">
+              <div class="gallery__nav-item">
+                <input
+                  type="radio"
+                  name="tab"
+                  id="tab1"
+                  class="gallery__nav-input"
+                  checked
+                />
+                <label for="tab1" class="gallery__nav-label">Long</label>
+              </div>
+              <div class="gallery__nav-item">
+                <input
+                  type="radio"
+                  name="tab"
+                  id="tab2"
+                  class="gallery__nav-input"
+                />
+                <label for="tab2" class="gallery__nav-label">Huyen</label>
+              </div>
+              <div class="gallery__nav-item">
+                <input
+                  type="radio"
+                  name="tab"
+                  id="tab3"
+                  class="gallery__nav-input"
+                />
+                <label for="tab3" class="gallery__nav-label">Ours</label>
+              </div>
+              <div class="gallery__nav-item">
+                <input
+                  type="radio"
+                  name="tab"
+                  id="tab4"
+                  class="gallery__nav-input"
+                />
+                <label for="tab4" class="gallery__nav-label">All</label>
+              </div>
+            </nav>
+            <div class="gallery__tab gallery__tab-long">
+              <img src="./assess/img/Long.jpg" alt="" class="gallery__img" />
+              <img src="./assess/img/Long1.jpg" alt="" class="gallery__img" />
+              <img src="./assess/img/Long2.jpg" alt="" class="gallery__img" />
+              <img src="./assess/img/Long3.jpg" alt="" class="gallery__img" />
+              <img src="./assess/img/Long4.jpg" alt="" class="gallery__img" />
+              <img src="./assess/img/Long5.jpg" alt="" class="gallery__img" />
+            </div>
+            <div class="gallery__tab gallery__tab-huyen">
+              <img src="./assess/img/Huyen.jpg" alt="" class="gallery__img" />
+              <img src="./assess/img/Huyen1.jpg" alt="" class="gallery__img" />
+              <img src="./assess/img/Huyen2.jpg" alt="" class="gallery__img" />
+              <img src="./assess/img/Huyen3.jpg" alt="" class="gallery__img" />
+              <img src="./assess/img/Huyen4.jpg" alt="" class="gallery__img" />
+            </div>
+            <div class="gallery__tab gallery__tab-ours">
+              <img src="./assess/img/NamTay.jpg" alt="" class="gallery__img" />
+              <img src="./assess/img/4_6Sapa.jpg" alt="" class="gallery__img" />
+              <img src="./assess/img/21_6.jpg" alt="" class="gallery__img" />
+              <img src="./assess/img/FirstDay.jpg" alt="" class="gallery__img" />
+              <img src="./assess/img/holdhand.jpg" alt="" class="gallery__img" />
+            </div>
+            <div class="gallery__tab gallery__tab-ours" id="tab1">
+              <div class="gallery__images"></div>
+              <div class="pagination"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="contact"
+        data-animate="animate__rotateInDownRight"
+        id="contact"
+      >
+        <div class="container">
+          <h2 class="heading-section">Send Letter</h2>
+          <p class="gallery__desc contact__desc">
+            Don't hesitate to reach out — whether it's a word, a thought, or
+            just a feeling. I'm always here, and I'd love to share a little
+            piece of love with you.
+          </p>
+
+          <div class="contact__card-list">
+            <div class="contact__card">
+              <div class="contact__card-info">
+                <h3 class="contact__card-heading">Contact Information</h3>
+                <div class="contact__list">
+                  <div class="contact__item">
+                    <figure class="contact__icon-wrap">
+                      <i
+                        class="fa-solid fa-phone"
+                        style="color: #ffffff"
+                        class="contact__icon"
+                      ></i>
+                    </figure>
+                    <span class="contact__title">Phone:</span>
+                    <a href="tel:0979660325" class="contact__info"
+                      >0979660325</a
+                    >
+                  </div>
+                  <div class="contact__item">
+                    <figure class="contact__icon-wrap">
+                      <i
+                        class="fa-solid fa-envelope"
+                        style="color: #ffffff"
+                        class="contact__icon"
+                      ></i>
+                    </figure>
+                    <span class="contact__title">Email:</span>
+                    <a href="mailto:longprolc10@gmail.com" class="contact__info"
+                      >longprolc10@gmail.com</a
+                    >
+                  </div>
+                  <div class="contact__item">
+                    <figure class="contact__icon-wrap">
+                      <i
+                        class="fa-brands fa-facebook"
+                        style="color: #ffffff"
+                        class="contact__icon"
+                      ></i>
+                    </figure>
+                    <span class="contact__title">Facebook:</span>
+                    <a
+                      class="contact__info"
+                      href="https://www.facebook.com/longprolc10/"
+                      >Thành Long</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <form action="" id="discord-form" class="contact__card">
+              <h3 class="contact__card-heading">Whispers of the Heart</h3>
+              <textarea
+                name=""
+                id="message"
+                placeholder="Enter your message here..."
+                class="contact__content"
+                rows="10"
+                cols="50"
+              ></textarea>
+              <button
+                class="contact__btn animate__animated animate__bounce"
+                type="submit"
+              >
+                Send Message
+                <span class="btn__icon"
+                  ><i class="fa-solid fa-paper-plane" style="color: #ffffff"></i
+                ></span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <p class="footer__created">
+            <span class="prefix">Created by </span>
+            <span class="typing-text" id="typing"></span>
+          </p>
+          <div class="footer__social-list">
+            <a
+              href="https://www.facebook.com/longprolc10/"
+              class="footer__social-item"
+              target="_blank"
+            >
+              <i class="fa-brands fa-facebook"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/n.longg18/"
+              class="footer__social-item"
+              target="_blank"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+              href="https://www.topcv.vn/xem-cv/VwMAClEBUlsDBF1SVgUGWQRcBwZVB1JYDFUEAwb775"
+              class="footer__social-item"
+              target="_blank"
+              ><i class="fa-solid fa-file"></i
+            ></a>
+            <a
+              href="https://www.linkedin.com/in/long-nguy%E1%BB%85n-10a577290/"
+              class="footer__social-item"
+              target="_blank"
+              ><i class="fa-brands fa-linkedin"></i
+            ></a>
+          </div>
+          <nav class="navigation-bar">
+            <ul class="nav-item">
+              <li class="item"><a href="#home" class="item-link">Home</a></li>
+              <li class="item">
+                <a href="#info" class="item-link">About Us</a>
+              </li>
+              <li class="item">
+                <a href="#diary" class="item-link">Our Story</a>
+              </li>
+              <li class="item"><a href="#quote" class="item-link">Quote</a></li>
+              <li class="item">
+                <a href="#gallery" class="item-link">Gallery</a>
+              </li>
+              <li class="item">
+                <a href="#contact" class="item-link">Send Message</a>
+              </li>
+            </ul>
+          </nav>
+          <p class="footer__copyright">
+            © 2025 n.longg1805. All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      // Hàm này dùng để tính toán và cập nhật lại số ngày hiển thị
+      function updateDaysCount(startDateString) {
+        const startDate = new Date(startDateString);
+        const today = new Date();
+
+        // Reset giờ về 00:00:00 để đảm bảo tính chính xác số ngày
+        startDate.setHours(0, 0, 0, 0);
+        today.setHours(0, 0, 0, 0);
+
+        // Tính toán khoảng thời gian
+        const diffTime = today - startDate;
+        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+        // Cập nhật số ngày lên màn hình
+        document.getElementById("daysCount").textContent = diffDays;
+      }
+
+      // Chạy code sau khi toàn bộ trang đã được tải
+      window.onload = function () {
+        const circle = document.getElementById("circleDate");
+        const dateInput = document.getElementById("startDateInput");
+
+        // --- NGÀY BẮT ĐẦU MẶC ĐỊNH ---
+        const defaultStartDate = "2025-05-25"; // <<<< Thay đổi ngày kỷ niệm của bạn ở đây
+
+        // Hiển thị số ngày mặc định khi tải trang
+        updateDaysCount(defaultStartDate);
+
+        // 1. Khi người dùng nhấn vào vòng tròn
+        circle.onclick = function () {
+          dateInput.click(); // Giả lập một cú nhấp chuột vào thẻ input bị ẩn
+        };
+
+        // 2. Khi người dùng chọn một ngày mới từ date picker
+        dateInput.onchange = function () {
+          updateDaysCount(this.value); // 'this.value' chính là ngày người dùng vừa chọn
+        };
+      };
+    </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const skillProgressBars = document.querySelectorAll(
+          ".info__skill-progress"
+        );
+
+        skillProgressBars.forEach((bar) => {
+          const progressValue = bar.dataset.progress; // Lấy giá trị từ data-progress, ví dụ "78%"
+          bar.style.setProperty("--progress-width", progressValue); // Gán giá trị này vào biến CSS --progress-width
+        });
+      });
+    </script>
+    <script>
+      const checkbox = document.getElementById("info-switch");
+      const infoHuyen = document.querySelector(".info__inner-huyen");
+      const infoLong = document.querySelector(".info__inner-long");
+
+      function toggleInfo() {
+        if (checkbox.checked) {
+          infoHuyen.classList.remove("active");
+          infoLong.classList.add("active");
+        } else {
+          infoLong.classList.remove("active");
+          infoHuyen.classList.add("active");
+        }
+      }
+
+      checkbox.addEventListener("change", toggleInfo);
+
+      // Gọi lúc đầu để thiết lập trạng thái ban đầu
+      toggleInfo();
+    </script>
+    <script>
+      const sliders = document.querySelectorAll(".love-slider");
+
+      sliders.forEach((slider) => {
+        const update = () => {
+          const value = slider.value;
+          slider.style.setProperty("--value", `${value}%`);
+        };
+        slider.addEventListener("input", update);
+        update(); // chạy lúc load
+      });
+    </script>
+    <script>
+      const quotes = [
+        {
+          text: "Love is not about how many days, months, or years you’ve been together.",
+          author: "Unknown",
+        },
+        {
+          text: "In your smile, I see something more beautiful than the stars.",
+          author: "Beth Revis",
+        },
+        {
+          text: "Every love story is beautiful, but ours is my favorite.",
+          author: "Unknown",
+        },
+        {
+          text: "You’re the one I’ve been waiting for, the missing piece to my puzzle.",
+          author: "Unknown",
+        },
+        {
+          text: "You’re my today and all of my tomorrows.",
+          author: "Leo Christopher",
+        },
+      ];
+
+      const index = Math.floor(Math.random() * quotes.length);
+      const quote = quotes[index];
+
+      // Tạo HTML cho phần quote text
+      const quoteTextElement = document.querySelector(".quote__text");
+      quoteTextElement.innerHTML = `
+      
+      "${quote.text}"`;
+
+      // Gán author
+      document.querySelector(".quote__author").innerText = `– ${quote.author}`;
+    </script>
+    <script>
+      const inputs = document.querySelectorAll(".gallery__nav-input");
+      const tabs = document.querySelectorAll(".gallery__tab");
+
+      const tabMap = {
+        tab1: "gallery__tab-long",
+        tab2: "gallery__tab-huyen",
+        tab3: "gallery__tab-ours",
+        tab4: "gallery__tab-all",
+      };
+
+      inputs.forEach((input) => {
+        input.addEventListener("change", () => {
+          tabs.forEach((tab) => tab.classList.remove("active"));
+
+          const selectedId = input.id;
+          const tabClass = tabMap[selectedId];
+          const selectedTab = document.querySelector(`.${tabClass}`);
+          if (selectedTab) {
+            selectedTab.classList.add("active");
+          }
+        });
+      });
+
+      // Khởi tạo tab mặc định khi load trang
+      window.addEventListener("DOMContentLoaded", () => {
+        const checkedInput = document.querySelector(
+          ".gallery__nav-input:checked"
+        );
+        if (checkedInput) {
+          checkedInput.dispatchEvent(new Event("change"));
+        }
+      });
+    </script>
+    <script>
+      const form = document.getElementById("discord-form");
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const message = document.getElementById("message").value;
+
+        const webhookURL =
+          "https://discord.com/api/webhooks/1399293230788509836/ba-fwq4oOV8UZoxMMgg8mlPIX69hq42fUzyziJW2pctsPn7Jcb0pLWj4KxMSIOF1DAHA";
+
+        fetch(webhookURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            content: message,
+          }),
+        })
+          .then((res) => {
+            if (res.ok) {
+              alert("✅ Tin nhắn đã gửi lên Discord!");
+              form.reset();
+            } else {
+              alert("❌ Gửi thất bại.");
+            }
+          })
+          .catch((err) => {
+            console.error("Lỗi khi gửi Discord:", err);
+            alert("❌ Lỗi kết nối.");
+          });
+      });
+    </script>
+    <script>
+      const texts = ["Thanh Long", "n.longg1805"];
+      let count = 0;
+      let index1 = 0;
+      let currentText = "";
+      let letter = "";
+      let isDeleting = false;
+
+      function type() {
+        currentText = texts[count % texts.length];
+
+        if (isDeleting) {
+          letter = currentText.substring(0, index1--);
+        } else {
+          letter = currentText.substring(0, index1++);
+        }
+
+        document.getElementById("typing").textContent = letter;
+
+        let speed = isDeleting ? 60 : 120;
+
+        if (!isDeleting && index1 === currentText.length + 1) {
+          speed = 1500;
+          isDeleting = true;
+        } else if (isDeleting && index1 === 0) {
+          isDeleting = false;
+          count++;
+          speed = 500;
+        }
+
+        setTimeout(type, speed);
+      }
+
+      // Đảm bảo hàm chạy sau khi DOM sẵn sàng
+      document.addEventListener("DOMContentLoaded", type);
+    </script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                const el = entry.target;
+                const animation = el.dataset.animate;
+
+                el.classList.add("animate__animated", animation);
+                observer.unobserve(el); // chỉ chạy 1 lần
+              }
+            });
+          },
+          {
+            threshold: 0.2, // phần tử hiển thị 20% sẽ kích hoạt
+          }
+        );
+
+        // Lấy tất cả section có data-animate
+        document
+          .querySelectorAll("[data-animate]")
+          .forEach((el) => observer.observe(el));
+      });
+    </script>
+  </body>
+</html>
