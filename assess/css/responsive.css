@@ -1,0 +1,235 @@
+/* Laptop */
+@media screen and (min-width:992px){
+    .mobile-header{
+        display: none;
+    }
+    .show-on-mobile{
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+    .show-on-laptop{
+        display: block;
+    }
+    .gallery__tab{
+        display: grid;
+    }
+}
+
+/* Tablet and Mobile */
+@media screen and (max-width:991px) {
+
+}
+/* Mobile */
+@media screen and (max-width:736px) {
+    .show-on-laptop{
+        display: none !important; 
+    }
+    
+    .toggle-menu svg{
+        width: 24px;
+        color: #666;
+    }
+    .pc-nav,.header__cta{
+        display: none;
+    }
+    .header-top{
+        display: flex;
+        position: relative;
+        width: 100vw;
+    }
+    .logo-link{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .menu-overlay{
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 1;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.5s ease;
+    }
+    .menu-drawer{
+        position: fixed;
+        padding: 60px 30px;
+        inset: 0 30% 0 0;
+        background: #fff;
+        z-index: 2;
+        transform: translateX(-100%);
+        transition: 0.5s ease;
+    }
+    .menu-checkbox:checked ~ .menu-overlay{
+        opacity: 1;
+        visibility: visible;
+    }
+    .menu-checkbox:checked ~ .menu-drawer{
+        transform: translateX(0);
+    }
+    .navigation-bar{
+        flex-direction: column;
+    }
+    .nav-item{
+        flex-direction: column;
+        row-gap: 20px;
+    }
+    .item-link{
+    color: #2C2C2C;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    transition: 0.5s;
+    position: relative;
+}
+    .item-link::after{
+    content: "";
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2.5px;
+    width: 0%;
+    background:var(--background-color);
+    transition: 0.5s;
+    }
+    .item-link:hover{
+    background: var(--background-color);
+    -webkit-background-clip: text;       /* Cho Safari & Chrome */
+    -webkit-text-fill-color: transparent;
+    background-clip: text;               /* Cho Firefox */
+    color: transparent;                  /* Dự phòng */
+    /* font-weight: bold; */
+    }
+    .item-link:hover::after{
+    width: 100%;
+    }
+    .seperator{
+        width: 60%;
+        height: 2px;
+        background-color: #666;
+    }
+    .lds-heart div{
+        top: 45px;
+        left: 50px;
+    }
+    .hero__list{
+        column-gap: 30px;
+    }
+    .hero__person-avt{
+        width: 120px;
+        height: 120px;
+    }
+    .hero__person-name{
+        text-wrap: nowrap;
+        display: none;
+    }
+    .info__inner{
+        flex-direction: column;
+    }
+    .info__content {
+    margin-left: 50px;
+    align-self: flex-start;
+    }
+    .info__skill-progress{
+        width: 140%;
+    }
+    .info__media-wrap{
+        width: 400px;
+    }
+    .info__media-img {
+    left: 5%;
+    top: 10%;
+    width: 90%;
+    height: 400px;
+    }       
+    .info__media-name{
+        bottom: 5%;
+        right: 30%;
+    }
+    .info__card {
+    bottom: 20%;
+    right: 2%;
+    width: 150px;
+    }
+    .info__media-decor:nth-of-type(3) {
+        top: 20px;
+        left: -11px;
+    }
+    .info__media-decor:nth-of-type(2) {
+        right: 15px;
+    }
+    .gallery__desc{
+        width: 350px;
+        margin: 0 auto;
+    }
+    /* Diary */
+    .diary__list{
+        display: flex;
+        padding: 10px 0;
+        overflow-x: auto;
+    }
+    .diary__scroll{
+        display: flex;
+        gap: 16px;
+        padding: 10px 16px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+    .diary__card {
+        flex: 0 0 auto;
+        width: 250px;
+        scroll-snap-align: start;
+    }
+    .gallery__nav-label{
+        padding: 12px;
+    }
+    .gallery__nav{
+        width: 100%;
+        margin-top: 32px;
+    }
+    /* Gallery */
+    /* Fix lỗi layout cho Swiper */
+    .swiper {
+    width: 100%;
+    height: auto;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    }
+
+    .swiper-wrapper {
+    display: flex;
+    }
+
+    .swiper-slide {
+    flex-shrink: 0;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .gallery__img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    }
+    .gallery__tab{
+        display: flex;
+    }
+    .gallery__img{
+        width: 240px;
+        height: 240px;
+        object-fit: cover;
+    }
+    .contact__card{
+        width: 400px;
+        margin-top: 40px;
+    }
+    
+}

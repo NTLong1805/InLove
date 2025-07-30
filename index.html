@@ -99,6 +99,8 @@
     <link rel="stylesheet" href="./assess/css/reset.css" />
     <!-- Style Css -->
     <link rel="stylesheet" href="./assess/css/style.css" />
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="./assess/css/responsive.css" />
     <!-- Flatpickr CSS -->
     <link
       rel="stylesheet"
@@ -120,15 +122,25 @@
     />
     <!-- AOS CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="./assess/css/swiper.css" />
   </head>
   <body>
     <header class="header">
       <div class="container">
         <div class="header-top">
+          <label for="menu-checkbox" class="toggle-menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+              <path
+                fill="currentColor"
+                d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"
+              />
+            </svg>
+          </label>
           <a href="#!" class="logo-link">
             <span class="logo-name">Inlove</span>
           </a>
-          <nav class="navigation-bar">
+          <nav class="navigation-bar pc-nav">
             <ul class="nav-item">
               <li class="item"><a href="#home" class="item-link">Home</a></li>
               <li class="item">
@@ -143,8 +155,34 @@
               </li>
             </ul>
           </nav>
-          <a href="#contact" class="btn header__cta">Send Message</a>
+          <a href="#contact" class="btn-grad header__cta">Send Message</a>
         </div>
+      </div>
+    </header>
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+      <input type="checkbox" class="menu-checkbox" name="" id="menu-checkbox" />
+      <!-- Overlay -->
+      <label for="menu-checkbox" class="menu-overlay"></label>
+      <div class="menu-drawer">
+        <nav class="navigation-bar">
+          <ul class="nav-item">
+            <li class="item"><a href="#home" class="item-link">Home</a></li>
+            <li class="item">
+              <a href="#info" class="item-link">About Us</a>
+            </li>
+            <li class="item">
+              <a href="#diary" class="item-link">Our Story</a>
+            </li>
+            <li class="item"><a href="#quote" class="item-link">Quote</a></li>
+            <li class="item">
+              <a href="#gallery" class="item-link">Gallery</a>
+            </li>
+            <li class="item">
+              <a href="#contact" class="item-link">Contact</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
     <main>
@@ -354,7 +392,9 @@
             This diary captures the precious milestones of our love — from the
             first message to every sweet moment we’ve shared along the way
           </p>
-          <div class="diary__list animate__animated animate__zoomInUp">
+          <div
+            class="diary__list animate__animated animate__zoomInUp show-on-laptop"
+          >
             <!-- Card 1 -->
             <article class="diary__card">
               <div class="diary__card-inner">
@@ -569,6 +609,225 @@
               </div>
             </article>
           </div>
+          <div
+            class="diary__list animate__animated animate__zoomInUp show-on-mobile"
+          >
+            <div class="diary__scroll">
+              <!-- Card 1 -->
+              <article class="diary__card">
+                <div class="diary__card-inner">
+                  <div class="diary__card-front">
+                    <figure diary__card-wrap>
+                      <img
+                        src="./assess/icon/favourite (1).png"
+                        alt=""
+                        class="diary__card-img"
+                      />
+                    </figure>
+                    <p class="diary__card-day">25/03/2025</p>
+                    <h3 class="diary__card-heading">Tin Nhắn Đầu Tiên</h3>
+                    <p class="diary__card-desc">Ngày đầu tiên nhắn tin</p>
+                  </div>
+                  <div class="diary__card-back">
+                    <img
+                      src="./assess/img/FirstMessage.jpg"
+                      alt=""
+                      class="diary__preview-img"
+                    />
+                  </div>
+                </div>
+              </article>
+              <article class="diary__card">
+                <div class="diary__card-inner">
+                  <div class="diary__card-front">
+                    <figure diary__card-wrap>
+                      <img
+                        src="./assess/icon/handshake.png"
+                        alt=""
+                        class="diary__card-img"
+                      />
+                    </figure>
+                    <p class="diary__card-day">28/04/2025</p>
+                    <h3 class="diary__card-heading">Lần đầu gặp nhau</h3>
+                    <p class="diary__card-desc">Đi Canopy</p>
+                  </div>
+                  <div class="diary__card-back">
+                    <img
+                      src="./assess/img/FirstDay.jpg"
+                      alt=""
+                      class="diary__preview-img"
+                    />
+                  </div>
+                </div>
+              </article>
+              <article class="diary__card">
+                <div class="diary__card-inner">
+                  <div class="diary__card-front">
+                    <figure diary__card-wrap>
+                      <img
+                        src="./assess/icon/anniversary.png"
+                        alt=""
+                        class="diary__card-img"
+                      />
+                    </figure>
+                    <p class="diary__card-day">18/05/2025</p>
+                    <h3 class="diary__card-heading">Sinh Nhật Đầu Tiên</h3>
+                    <p class="diary__card-desc">My BirthDay</p>
+                  </div>
+                  <div class="diary__card-back">
+                    <video
+                      class="diary__preview-video"
+                      autoplay
+                      muted
+                      loop
+                      playsinline
+                      controls
+                    >
+                      <source src="./assess/img/HappyBirthDay.mp4" />
+                    </video>
+                  </div>
+                </div>
+              </article>
+              <article class="diary__card">
+                <div class="diary__card-inner">
+                  <div class="diary__card-front">
+                    <figure diary__card-wrap>
+                      <img
+                        src="./assess/icon/couple.png"
+                        alt=""
+                        class="diary__card-img"
+                      />
+                    </figure>
+                    <p class="diary__card-day">25/05/2025</p>
+                    <h3 class="diary__card-heading">Ngày đầu yêu</h3>
+                    <p class="diary__card-desc">The Day We Love</p>
+                  </div>
+                  <div class="diary__card-back">
+                    <img
+                      src="./assess/img/TheDayWeLove.jpg"
+                      alt=""
+                      class="diary__preview-img"
+                    />
+                  </div>
+                </div>
+              </article>
+              <article class="diary__card">
+                <div class="diary__card-inner">
+                  <div class="diary__card-front">
+                    <figure diary__card-wrap>
+                      <img
+                        src="./assess/icon/sun.png"
+                        alt=""
+                        class="diary__card-img"
+                      />
+                    </figure>
+                    <p class="diary__card-day">29/05/2025</p>
+                    <h3 class="diary__card-heading">Sweetie</h3>
+                    <p class="diary__card-desc">Đáng yêu vkl</p>
+                  </div>
+                  <div class="diary__card-back">
+                    <img
+                      src="./assess/img/Sweet.jpg"
+                      alt=""
+                      class="diary__preview-img"
+                    />
+                  </div>
+                </div>
+              </article>
+              <article class="diary__card">
+                <div class="diary__card-inner">
+                  <div class="diary__card-front">
+                    <figure diary__card-wrap>
+                      <img
+                        src="./assess/icon/couple.png"
+                        alt=""
+                        class="diary__card-img"
+                      />
+                    </figure>
+                    <p class="diary__card-day">04/06/2025</p>
+                    <h3 class="diary__card-heading">Rainy day in Sapa</h3>
+                    <p class="diary__card-desc">Cafe Bao Cấp</p>
+                  </div>
+                  <div class="diary__card-back">
+                    <img
+                      src="./assess/img/4_6Sapa.jpg"
+                      alt=""
+                      class="diary__preview-img"
+                    />
+                  </div>
+                </div>
+              </article>
+              <article class="diary__card">
+                <div class="diary__card-inner">
+                  <div class="diary__card-front">
+                    <figure diary__card-wrap>
+                      <img
+                        src="./assess/icon/couple.png"
+                        alt=""
+                        class="diary__card-img"
+                      />
+                    </figure>
+                    <p class="diary__card-day">21/06/2025</p>
+                    <h3 class="diary__card-heading">Universal</h3>
+                    <p class="diary__card-desc">Hold your hand</p>
+                  </div>
+                  <div class="diary__card-back">
+                    <img
+                      src="./assess/img/21_6.jpg"
+                      alt=""
+                      class="diary__preview-img"
+                    />
+                  </div>
+                </div>
+              </article>
+              <article class="diary__card">
+                <div class="diary__card-inner">
+                  <div class="diary__card-front">
+                    <figure diary__card-wrap>
+                      <img
+                        src="./assess/icon/calendar.png"
+                        alt=""
+                        class="diary__card-img"
+                      />
+                    </figure>
+                    <p class="diary__card-day">25/06/2025</p>
+                    <h3 class="diary__card-heading">First Month</h3>
+                    <p class="diary__card-desc">1st Month</p>
+                  </div>
+                  <div class="diary__card-back">
+                    <img
+                      src="./assess/img/1month.jpg"
+                      alt=""
+                      class="diary__preview-img"
+                    />
+                  </div>
+                </div>
+              </article>
+              <article class="diary__card">
+                <div class="diary__card-inner">
+                  <div class="diary__card-front">
+                    <figure diary__card-wrap>
+                      <img
+                        src="./assess/icon/calendar.png"
+                        alt=""
+                        class="diary__card-img"
+                      />
+                    </figure>
+                    <p class="diary__card-day">25/07/2025</p>
+                    <h3 class="diary__card-heading">2 Months</h3>
+                    <p class="diary__card-desc">2 Month with Graduation</p>
+                  </div>
+                  <div class="diary__card-back">
+                    <img
+                      src="./assess/img/2month.jpg"
+                      alt=""
+                      class="diary__preview-img"
+                    />
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
           <a href="" class="btn diary__btn" title="Chưa hoàn thiện">Add More</a>
         </div>
       </section>
@@ -642,7 +901,61 @@
                 <label for="tab4" class="gallery__nav-label">All</label>
               </div>
             </nav>
-            <div class="gallery__tab gallery__tab-long">
+            <div class="gallery__tab gallery__tab-long show-on-mobile">
+              <div class="swiper gallerySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/Long.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/Long1.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/Long2.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/Long3.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/Long4.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/Long5.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                </div>
+                <!-- Pagination -->
+                <div class="swiper-pagination show-on-mobile"></div>
+
+                <!-- Navigation -->
+                <div class="swiper-button-prev show-on-mobile"></div>
+                <div class="swiper-button-next show-on-mobile"></div>
+              </div>
+            </div>
+            <div class="gallery__tab gallery__tab-long show-on-laptop">
               <img src="./assess/img/Long.jpg" alt="" class="gallery__img" />
               <img src="./assess/img/Long1.jpg" alt="" class="gallery__img" />
               <img src="./assess/img/Long2.jpg" alt="" class="gallery__img" />
@@ -650,23 +963,128 @@
               <img src="./assess/img/Long4.jpg" alt="" class="gallery__img" />
               <img src="./assess/img/Long5.jpg" alt="" class="gallery__img" />
             </div>
-            <div class="gallery__tab gallery__tab-huyen">
+
+            <div class="gallery__tab gallery__tab-huyen show-on-laptop">
               <img src="./assess/img/Huyen.jpg" alt="" class="gallery__img" />
               <img src="./assess/img/Huyen1.jpg" alt="" class="gallery__img" />
               <img src="./assess/img/Huyen2.jpg" alt="" class="gallery__img" />
               <img src="./assess/img/Huyen3.jpg" alt="" class="gallery__img" />
               <img src="./assess/img/Huyen4.jpg" alt="" class="gallery__img" />
             </div>
-            <div class="gallery__tab gallery__tab-ours">
+            <div class="gallery__tab gallery__tab-huyen show-on-mobile">
+              <div class="swiper gallerySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/Huyen.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/Huyen1.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/Huyen2.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/Huyen3.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/Huyen4.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- Navigation -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+            </div>
+
+            <div class="gallery__tab gallery__tab-ours show-on-laptop">
               <img src="./assess/img/NamTay.jpg" alt="" class="gallery__img" />
               <img src="./assess/img/4_6Sapa.jpg" alt="" class="gallery__img" />
               <img src="./assess/img/21_6.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/FirstDay.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/holdhand.jpg" alt="" class="gallery__img" />
+              <img
+                src="./assess/img/FirstDay.jpg"
+                alt=""
+                class="gallery__img"
+              />
+              <img
+                src="./assess/img/holdhand.jpg"
+                alt=""
+                class="gallery__img"
+              />
             </div>
-            <div class="gallery__tab gallery__tab-ours" id="tab1">
-              <div class="gallery__images"></div>
-              <div class="pagination"></div>
+            <div class="gallery__tab gallery__tab-ours show-on-mobile">
+              <div class="swiper gallerySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/NamTay.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/4_6Sapa.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/21_6.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/FirstDay.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                  <div class="swiper-slide">
+                    <img
+                      src="./assess/img/holdhand.jpg"
+                      alt=""
+                      class="gallery__img"
+                    />
+                  </div>
+                </div>
+
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- Navigation -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+              </div>
+            </div>
+
+            <div class="gallery__tab gallery__tab-all" id="tab1">
             </div>
           </div>
         </div>
@@ -685,7 +1103,7 @@
           </p>
 
           <div class="contact__card-list">
-            <div class="contact__card">
+            <div class="contact__card show-on-laptop">
               <div class="contact__card-info">
                 <h3 class="contact__card-heading">Contact Information</h3>
                 <div class="contact__list">
@@ -793,7 +1211,7 @@
               ><i class="fa-brands fa-linkedin"></i
             ></a>
           </div>
-          <nav class="navigation-bar">
+          <nav class="navigation-bar show-on-laptop">
             <ul class="nav-item">
               <li class="item"><a href="#home" class="item-link">Home</a></li>
               <li class="item">
@@ -950,14 +1368,18 @@
 
       inputs.forEach((input) => {
         input.addEventListener("change", () => {
+          // 1. Ẩn tất cả các tab
           tabs.forEach((tab) => tab.classList.remove("active"));
 
+          // 2. Lấy class của tab cần hiện
           const selectedId = input.id;
           const tabClass = tabMap[selectedId];
-          const selectedTab = document.querySelector(`.${tabClass}`);
-          if (selectedTab) {
-            selectedTab.classList.add("active");
-          }
+
+          // 3. Tìm *TẤT CẢ* các tab (cả mobile và laptop) có class đó và active chúng
+          const selectedTabs = document.querySelectorAll(`.${tabClass}`);
+          selectedTabs.forEach((tab) => {
+            tab.classList.add("active");
+          });
         });
       });
 
@@ -1063,6 +1485,33 @@
         document
           .querySelectorAll("[data-animate]")
           .forEach((el) => observer.observe(el));
+      });
+    </script>
+    <!-- Swiper Js  -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      const swiper = new Swiper(".gallerySwiper", {
+        loop: true,
+        spaceBetween: 20,
+        slidesPerView: 1.2, // Vuốt ngang
+        centeredSlides: true,
+        grabCursor: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          768: {
+            slidesPerView: 2.5,
+          },
+          1024: {
+            slidesPerView: 3.5,
+          },
+        },
       });
     </script>
   </body>
