@@ -3,17 +3,22 @@
     .mobile-header{
         display: none;
     }
-    .show-on-mobile{
-        display: none;
-        opacity: 0;
-        visibility: hidden;
-    }
+    
     .show-on-laptop{
         display: block;
     }
     .gallery__tab{
         display: grid;
     }
+    .diary__list{
+        display: grid;
+    }
+    .show-on-mobile{
+        display: none;
+        opacity: 0;
+        visibility: hidden;
+    }
+    
 }
 
 /* Tablet and Mobile */
