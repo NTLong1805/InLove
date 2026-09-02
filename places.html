@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Places We've Been | InLove</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./assess/css/reset.css" />
+    <link rel="stylesheet" href="./assess/css/places.css" />
+  </head>
+
+  <body class="places-page">
+    <header class="places-header">
+      <div class="places-container places-header__inner">
+        <a href="./index.html#home" class="places-logo">Inlove</a>
+
+        <nav class="places-nav" aria-label="Main navigation">
+          <a href="./index.html#home">Home</a>
+          <a href="./index.html#info">About Us</a>
+          <a href="./index.html#diary">Our Story</a>
+          <a href="./index.html#gallery">Gallery</a>
+        </nav>
+
+        <a href="./index.html#home" class="places-back">
+          <i class="fa-solid fa-arrow-left"></i>
+          Back home
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <section class="places-hero">
+        <div class="places-container">
+          <p class="places-eyebrow">Little places, big memories ♡</p>
+          <h1>Places We've Been</h1>
+          <p class="places-intro">
+            Những nơi chúng mình đã cùng nhau đi qua, những bữa ăn,
+            những buổi hẹn và những khoảnh khắc vẫn còn ở lại.
+          </p>
+
+          <div class="places-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              id="placesSearch"
+              type="search"
+              placeholder="Search our memories..."
+              autocomplete="off"
+              aria-label="Search places"
+            />
+            <button id="clearSearch" type="button" aria-label="Clear search">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div class="places-toolbar">
+            <p id="placesResultCount">0 memories</p>
+            <label class="places-sort">
+              <span>Sort</span>
+              <select id="placesSort">
+                <option value="newest">Newest first</option>
+                <option value="oldest">Oldest first</option>
+                <option value="name">Name A-Z</option>
+              </select>
+            </label>
+          </div>
+
+          <div id="placesGrid" class="places-grid"></div>
+
+          <div id="placesEmpty" class="places-empty" hidden>
+            <span>♡</span>
+            <h2>Chưa tìm thấy kỷ niệm này</h2>
+            <p>Thử tìm bằng tên địa điểm, thành phố hoặc món yêu thích nhé.</p>
+          </div>
+
+          <nav id="placesPagination" class="places-pagination" aria-label="Places pagination"></nav>
+        </div>
+      </section>
+    </main>
+
+    <footer class="places-footer">
+      <p>Made with ♡ by Long &amp; Thư</p>
+    </footer>
+
+    <script src="./assess/js/places.js"></script>
+  </body>
+</html>
