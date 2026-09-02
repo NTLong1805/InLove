@@ -236,5 +236,399 @@
         width: 400px;
         margin-top: 40px;
     }
-    
+    .hero {
+        position: relative;
+
+        width: 100%;
+        min-height: 720px;
+
+        padding: 45px 18px 55px;
+
+        overflow: hidden;
+
+        box-sizing: border-box;
+    }
+
+
+    /* =========================
+       MAIN LAYOUT
+    ========================= */
+
+    .hero__inner {
+        position: relative;
+
+        width: 100%;
+        max-width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 5px;
+    }
+
+
+    /* =========================
+       TEXT
+    ========================= */
+
+    .hero__content {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        text-align: center;
+
+        position: relative;
+        z-index: 5;
+    }
+
+
+    /* Our little story */
+
+    .hero__eyebrow {
+        margin: 10px 0 4px;
+
+        font-family: "Dancing Script", cursive;
+
+        font-size: 34px;
+        line-height: 1.1;
+
+        white-space: nowrap;
+
+        color: #744b3d;
+    }
+
+    .hero__eyebrow span {
+        font-size: 34px;
+    }
+
+
+    /* Long ♥ Thư */
+
+    .hero__couple-name {
+        margin: 4px 0 8px;
+
+        font-family: "Dancing Script", cursive;
+
+        font-size: 64px;
+        line-height: 1;
+
+        white-space: nowrap;
+
+        color: #704536;
+    }
+
+    .hero__couple-name span {
+        font-size: 48px;
+
+        margin: 0 3px;
+    }
+
+
+    /* Subtitle */
+
+    .hero__subtitle {
+        margin: 4px 0 12px;
+
+        font-size: 12px;
+
+        line-height: 1.4;
+    }
+
+
+    /* =========================
+       COUNTER
+    ========================= */
+
+    .hero__counter {
+        position: relative;
+        z-index: 10;
+
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        margin-top: 0;
+    }
+
+
+    /* Total days */
+
+    .hero__days {
+        display: flex;
+
+        align-items: baseline;
+        justify-content: center;
+
+        gap: 7px;
+    }
+
+    .hero__days span:first-child {
+        font-family: Georgia, serif;
+
+        font-size: 65px;
+        line-height: 1;
+
+        letter-spacing: -2px;
+
+        color: #30201b;
+    }
+
+    .hero__days span:last-child {
+        font-family: "Dancing Script", cursive;
+
+        font-size: 25px;
+
+        color: #8a5c4c;
+    }
+
+
+    /* =========================
+       TIME DETAILS
+    ========================= */
+
+    .hero__time {
+        width: 100%;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 4px;
+
+        margin-top: 14px;
+    }
+
+    .hero__time-item {
+        min-width: 48px;
+
+        padding: 7px 3px;
+
+        box-sizing: border-box;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        background: rgba(255, 250, 246, .8);
+
+        border: 1px solid #e6d3c6;
+
+        border-radius: 6px;
+
+        box-shadow:
+            0 3px 8px rgba(100, 65, 45, .08);
+    }
+
+    .hero__time-item span {
+        font-family: Georgia, serif;
+
+        font-size: 17px;
+
+        line-height: 1.1;
+
+        color: #4b3029;
+    }
+
+    .hero__time-item small {
+        margin-top: 3px;
+
+        font-size: 7px;
+
+        letter-spacing: .2px;
+
+        color: #9a7768;
+
+        text-transform: uppercase;
+    }
+
+
+    /* =========================
+       SINCE
+    ========================= */
+
+    .hero__since {
+        margin-top: 10px;
+
+        font-size: 9px;
+
+        color: #775c51;
+    }
+
+
+    /* =========================
+       PHOTOS AREA
+    ========================= */
+
+    .hero__photos {
+        position: relative;
+
+        width: 100%;
+
+        height: 310px;
+
+        margin-top: 20px;
+
+        flex-shrink: 0;
+    }
+
+
+    /* =========================
+       POLAROID
+    ========================= */
+
+    .hero__photo {
+        position: absolute;
+
+        width: 185px;
+        height: 240px;
+
+        padding: 10px 10px 35px;
+
+        box-sizing: border-box;
+
+        background: #fffdfb;
+
+        box-shadow:
+            0 10px 25px rgba(80, 50, 35, .20);
+
+        overflow: visible;
+    }
+
+
+    .hero__photo img {
+        width: 100%;
+        height: 100%;
+
+        object-fit: cover;
+
+        display: block;
+    }
+
+
+    /* Long photo */
+
+    .hero__photo--long {
+        left: 5%;
+        top: 25px;
+
+        transform: rotate(-8deg);
+
+        z-index: 2;
+    }
+
+
+    /* Thu photo */
+
+    .hero__photo--thu {
+        right: 5%;
+        top: 45px;
+
+        transform: rotate(7deg);
+
+        z-index: 3;
+    }
+
+
+    /* =========================
+       TAPE
+    ========================= */
+
+    .hero__tape {
+        position: absolute;
+
+        z-index: 10;
+
+        top: -15px;
+        left: 50%;
+
+        width: 75px;
+        height: 28px;
+
+        transform:
+            translateX(-50%)
+            rotate(-3deg);
+
+        background: rgba(221, 190, 160, .65);
+    }
+
+
+    .hero__photo--thu .hero__tape {
+        transform:
+            translateX(-50%)
+            rotate(8deg);
+    }
+
+
+    /* =========================
+       HEART BETWEEN PHOTOS
+    ========================= */
+
+    .hero__line-heart {
+        position: absolute;
+
+        z-index: 8;
+
+        top: 80px;
+        left: 50%;
+
+        right: auto;
+
+        transform:
+            translateX(-50%)
+            rotate(-10deg);
+
+        font-size: 70px;
+
+        color: #e98989;
+
+        opacity: .8;
+
+        pointer-events: none;
+    }
+
+
+    /* =========================
+       FLOATING HEARTS
+    ========================= */
+
+    .hero__decor--heart {
+        top: 75px;
+        left: 7%;
+
+        font-size: 18px;
+    }
+
+    .hero__decor--heart-2 {
+        top: 110px;
+        right: 6%;
+
+        font-size: 15px;
+    }
+
+    .hero__decor--heart-3 {
+        bottom: 100px;
+        left: 12%;
+
+        font-size: 13px;
+    }
+
+
+    /* =========================
+       PAPER EDGE
+    ========================= */
+
+    .hero__paper-edge {
+        height: 25px;
+    }
 }

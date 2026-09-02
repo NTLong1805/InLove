@@ -189,43 +189,85 @@
       </div>
     </header>
     <main>
-      <section class="hero" id="home" data-animate="animate__backInLeft">
+      <section class="hero" id="home" data-animate="animate__fadeIn">
+        <div class="hero__decor hero__decor--heart">♥</div>
+        <div class="hero__decor hero__decor--heart-2">♥</div>
+        <div class="hero__decor hero__decor--heart-3">♥</div>
+
         <div class="container">
           <div class="hero__inner">
-            <p class="hero__title">Been Together...</p>
-            <label for="startDateInput">
-              <div class="hero__circle" id="circleDate">
-                <span class="circle__count" id="daysCount"></span>
-                <p class="circle__day">Days</p>
+            <!-- Left / Main content -->
+            <div class="hero__content">
+              <p class="hero__eyebrow">
+                Our little story
+                <span>♡</span>
+              </p>
+
+              <h1 class="hero__couple-name">Long <span>♥</span> Thư</h1>
+
+              <p class="hero__subtitle">We've been together for</p>
+
+              <!-- Giữ nguyên ID để JS hiện tại vẫn tính ngày -->
+              <div class="hero__counter">
+                <!-- Total days -->
+                <div class="hero__days">
+                  <span id="daysCount">0</span>
+                  <span>days</span>
+                </div>
+
+                <!-- Detailed time -->
+                <div class="hero__time">
+                  <div class="hero__time-item">
+                    <span id="monthsCount">0</span>
+                    <small>months</small>
+                  </div>
+
+                  <div class="hero__time-item">
+                    <span id="remainingDays">0</span>
+                    <small>days</small>
+                  </div>
+
+                  <div class="hero__time-item">
+                    <span id="hoursCount">0</span>
+                    <small>hours</small>
+                  </div>
+
+                  <div class="hero__time-item">
+                    <span id="minutesCount">0</span>
+                    <small>minutes</small>
+                  </div>
+
+                  <div class="hero__time-item">
+                    <span id="secondsCount">0</span>
+                    <small>seconds</small>
+                  </div>
+                </div>
+                <p class="hero__since">since 01 August 2026</p>
               </div>
-            </label>
-            <div class="hero__list">
-              <!-- Person 1 -->
-              <div class="hero__person">
-                <figure class="hero__img-wrap">
-                  <img
-                    src="./assess/img/Long.jpg"
-                    alt=""
-                    class="hero__person-avt hero__person-avt-male"
-                  />
-                </figure>
-                <p class="hero__person-name">Nguyen Thanh Long</p>
+            </div>
+
+            <!-- Right / Photos -->
+            <div class="hero__photos">
+              <div class="hero__photo hero__photo--long">
+                <div class="hero__tape"></div>
+
+                <img src="./assess/img/Long.jpg" alt="Long" />
               </div>
-              <div class="lds-heart"><div></div></div>
-              <!-- Person 2 -->
-              <div class="hero__person">
-                <figure class="hero__img-wrap">
-                  <img
-                    src="./assess/img/Thu1.jpg"
-                    alt=""
-                    class="hero__person-avt hero__person-avt-female"
-                  />
-                </figure>
-                <p class="hero__person-name">Pham Nguyen Thu Minh</p>
+
+              <div class="hero__photo hero__photo--thu">
+                <div class="hero__tape"></div>
+
+                <img src="./assess/img/Thu1.jpg" alt="Thư" />
               </div>
+
+              <!-- Hand-drawn heart -->
+              <div class="hero__line-heart">♡</div>
             </div>
           </div>
         </div>
+
+        <!-- Bottom paper edge -->
+        <div class="hero__paper-edge"></div>
       </section>
       <section class="info" id="info" data-animate="animate__fadeInRightBig">
         <div class="container">
@@ -388,7 +430,7 @@
           </div>
         </div>
       </section>
-      <section class="diary" id="diary" data-animate="animate__zoomInUp">
+      <section class="diary" id="diary" c>
         <div class="container">
           <h2 class="heading-section">Our Diary</h2>
           <p class="gallery__desc diary__desc">
@@ -638,6 +680,18 @@
           </div>
           <a href="" class="btn diary__btn" title="Chưa hoàn thiện">Add More</a>
         </div>
+      </section>
+      <section class="grow" id="grow" data-animate="animate__jackInTheBox">
+        <p class="gallery__desc">We are learning to love each other better</p>
+        <h2 class="heading-section gallery__heading">Let’s Grow Together</h2>
+      </section>
+      <section class="place" id="place" data-animate="animate__jackInTheBox">
+        <p class="gallery__desc">every place has a memory</p>
+        <h2 class="heading-section gallery__heading">Places We’ve Been</h2>
+      </section>
+      <section class="place" id="place" data-animate="animate__jackInTheBox">
+        <p class="gallery__desc">the little things that make us, us</p>
+        <h2 class="heading-section gallery__heading">Little Things About Us</h2>
       </section>
       <section class="quote" id="quote" data-animate="animate__jackInTheBox">
         <div class="quote__header">
@@ -1128,44 +1182,153 @@
       </div>
     </footer>
     <script>
-      // Hàm này dùng để tính toán và cập nhật lại số ngày hiển thị
+      // Ngày bắt đầu
+      const startDateString = "2026-08-01T00:00:00";
+
+      // Hàm tính và cập nhật thời gian
       function updateDaysCount(startDateString) {
         const startDate = new Date(startDateString);
-        const today = new Date();
+        const now = new Date();
 
-        // Reset giờ về 00:00:00 để đảm bảo tính chính xác số ngày
-        startDate.setHours(0, 0, 0, 0);
-        today.setHours(0, 0, 0, 0);
+        // Kiểm tra ngày bắt đầu có hợp lệ không
+        if (isNaN(startDate.getTime())) {
+          console.error("Ngày bắt đầu không hợp lệ:", startDateString);
+          return;
+        }
 
-        // Tính toán khoảng thời gian
-        const diffTime = today - startDate;
-        const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+        /*
+         * ==========================
+         * TOTAL DAYS
+         * ==========================
+         */
 
-        // Cập nhật số ngày lên màn hình
-        document.getElementById("daysCount").textContent = diffDays;
+        const diffTime = now - startDate;
+
+        const totalDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+
+        const daysElement = document.getElementById("daysCount");
+
+        if (daysElement) {
+          daysElement.textContent = totalDays;
+        }
+
+        /*
+         * ==========================
+         * YEARS / MONTHS / DAYS
+         * ==========================
+         */
+
+        let years = now.getFullYear() - startDate.getFullYear();
+
+        let months = now.getMonth() - startDate.getMonth();
+
+        let days = now.getDate() - startDate.getDate();
+
+        // Nếu ngày hiện tại nhỏ hơn ngày bắt đầu
+        if (days < 0) {
+          months--;
+
+          // Lấy số ngày của tháng trước
+          const previousMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+
+          days += previousMonth.getDate();
+        }
+
+        // Nếu tháng hiện tại nhỏ hơn tháng bắt đầu
+        if (months < 0) {
+          years--;
+          months += 12;
+        }
+
+        /*
+         * ==========================
+         * HOURS / MINUTES / SECONDS
+         * ==========================
+         */
+
+        let hours = now.getHours() - startDate.getHours();
+
+        let minutes = now.getMinutes() - startDate.getMinutes();
+
+        let seconds = now.getSeconds() - startDate.getSeconds();
+
+        // Xử lý giây âm
+        if (seconds < 0) {
+          seconds += 60;
+          minutes--;
+        }
+
+        // Xử lý phút âm
+        if (minutes < 0) {
+          minutes += 60;
+          hours--;
+        }
+
+        // Xử lý giờ âm
+        if (hours < 0) {
+          hours += 24;
+        }
+
+        /*
+         * ==========================
+         * UPDATE UI
+         * ==========================
+         */
+
+        const yearsElement = document.getElementById("yearsCount");
+
+        const monthsElement = document.getElementById("monthsCount");
+
+        const remainingDaysElement = document.getElementById("remainingDays");
+
+        const hoursElement = document.getElementById("hoursCount");
+
+        const minutesElement = document.getElementById("minutesCount");
+
+        const secondsElement = document.getElementById("secondsCount");
+
+        if (yearsElement) {
+          yearsElement.textContent = years;
+        }
+
+        if (monthsElement) {
+          monthsElement.textContent = months;
+        }
+
+        if (remainingDaysElement) {
+          remainingDaysElement.textContent = days;
+        }
+
+        if (hoursElement) {
+          hoursElement.textContent = String(hours).padStart(2, "0");
+        }
+
+        if (minutesElement) {
+          minutesElement.textContent = String(minutes).padStart(2, "0");
+        }
+
+        if (secondsElement) {
+          secondsElement.textContent = String(seconds).padStart(2, "0");
+        }
       }
 
-      // Chạy code sau khi toàn bộ trang đã được tải
-      window.onload = function () {
-        const circle = document.getElementById("circleDate");
-        const dateInput = document.getElementById("startDateInput");
+      /*
+       * ==========================
+       * INITIAL UPDATE
+       * ==========================
+       */
 
-        // --- NGÀY BẮT ĐẦU MẶC ĐỊNH ---
-        const defaultStartDate = "2026-08-01"; // <<<< Thay đổi ngày kỷ niệm của bạn ở đây
+      updateDaysCount(startDateString);
 
-        // Hiển thị số ngày mặc định khi tải trang
-        updateDaysCount(defaultStartDate);
+      /*
+       * ==========================
+       * UPDATE EVERY SECOND
+       * ==========================
+       */
 
-        // 1. Khi người dùng nhấn vào vòng tròn
-        circle.onclick = function () {
-          dateInput.click(); // Giả lập một cú nhấp chuột vào thẻ input bị ẩn
-        };
-
-        // 2. Khi người dùng chọn một ngày mới từ date picker
-        dateInput.onchange = function () {
-          updateDaysCount(this.value); // 'this.value' chính là ngày người dùng vừa chọn
-        };
-      };
+      setInterval(() => {
+        updateDaysCount(startDateString);
+      }, 1000);
     </script>
     <script>
       document.addEventListener("DOMContentLoaded", () => {
