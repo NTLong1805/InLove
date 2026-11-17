@@ -126,9 +126,11 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
     <link rel="stylesheet" href="./assess/css/experience.css" />
     <!-- Swiper Css -->
-    <link rel="stylesheet" href="./assess/css/swiper.css" />
+
     <link rel="stylesheet" href="./assess/css/wishlist.css" />
     <link rel="stylesheet" href="./assess/css/place-preview.css" />
+    <link rel="stylesheet" href="./assess/css/memories.css" />
+    <link rel="stylesheet" href="./assess/css/letter.css" />
   </head>
   <body>
     <a class="skip-link" href="#home">Bỏ qua điều hướng</a>
@@ -443,255 +445,82 @@
           </div>
         </div>
       </section>
-      <section class="diary" id="diary" c>
+      <section class="diary memories-diary" id="diary" aria-labelledby="diary-heading">
         <div class="container">
-          <h2 class="heading-section">Our Diary</h2>
-          <p class="gallery__desc diary__desc">
-            This diary captures the precious milestones of our love — from the
-            first message to every sweet moment we’ve shared along the way
-          </p>
-          <div
-            class="diary__list animate__animated animate__zoomInUp show-on-laptop"
-          >
-            <!-- Card 1 -->
-            <article class="diary__card">
-              <div class="diary__card-inner">
-                <div class="diary__card-front">
-                  <figure diary__card-wrap>
-                    <img
-                      src="./assess/icon/favourite (1).png"
-                      alt=""
-                      class="diary__card-img"
-                    />
-                  </figure>
-                  <p class="diary__card-day">29/06/2026</p>
-                  <h3 class="diary__card-heading">Tin Nhắn Đầu Tiên</h3>
-                  <p class="diary__card-desc">Ngày đầu tiên nhắn tin</p>
-                </div>
-                <div class="diary__card-back">
-                  <img
-                    src="./assess/img/FirstMessage.jpg"
-                    alt=""
-                    class="diary__preview-img"
-                  />
-                </div>
+          <p class="memories__eyebrow">Every chapter starts with us ♡</p>
+          <h2 class="heading-section" id="diary-heading">Our Diary</h2>
+          <p class="gallery__desc diary__desc">Những cột mốc nhỏ mà hai đứa muốn giữ lại mãi. Nhấn vào một tấm ảnh để xem kỷ niệm rõ hơn.</p>
+          <div class="diary__timeline" id="diary-timeline">
+            <article class="diary__memory">
+              <span class="diary__number" aria-hidden="true">01</span>
+              <button class="diary__photo-button" type="button" data-story-image="./assess/img/FirstMessage.jpg" data-story-caption="Tin nhắn đầu tiên — Ngày đầu tiên nhắn tin" aria-label="Xem ảnh kỷ niệm Tin nhắn đầu tiên">
+                <img src="./assess/img/FirstMessage.jpg" alt="Tin nhắn đầu tiên" loading="lazy" decoding="async" />
+                <span class="diary__photo-hint" aria-hidden="true">Xem ảnh ↗</span>
+              </button>
+              <div class="diary__memory-content">
+                <span class="diary__date">29.06.2026</span>
+                <span class="diary__mini-title">Our first hello</span>
+                <h3>Tin nhắn đầu tiên</h3>
+                <p>Ngày đầu tiên nhắn tin</p>
               </div>
             </article>
-            <article class="diary__card">
-              <div class="diary__card-inner">
-                <div class="diary__card-front">
-                  <figure diary__card-wrap>
-                    <img
-                      src="./assess/icon/handshake.png"
-                      alt=""
-                      class="diary__card-img"
-                    />
-                  </figure>
-                  <p class="diary__card-day">18/07/2026</p>
-                  <h3 class="diary__card-heading">Lần đầu gặp nhau</h3>
-                  <p class="diary__card-desc">Công viên Cầu Giấy</p>
-                </div>
-                <div class="diary__card-back">
-                  <img
-                    src="./assess/img/thu7.jpg"
-                    alt=""
-                    class="diary__preview-img"
-                  />
-                </div>
+            <article class="diary__memory">
+              <span class="diary__number" aria-hidden="true">02</span>
+              <button class="diary__photo-button" type="button" data-story-image="./assess/img/thu7.jpg" data-story-caption="Lần đầu gặp nhau — Công viên Cầu Giấy" aria-label="Xem ảnh kỷ niệm Lần đầu gặp nhau">
+                <img src="./assess/img/thu7.jpg" alt="Lần đầu gặp nhau" loading="lazy" decoding="async" />
+                <span class="diary__photo-hint" aria-hidden="true">Xem ảnh ↗</span>
+              </button>
+              <div class="diary__memory-content">
+                <span class="diary__date">18.07.2026</span>
+                <span class="diary__mini-title">The day we met</span>
+                <h3>Lần đầu gặp nhau</h3>
+                <p>Công viên Cầu Giấy</p>
               </div>
             </article>
-            <article class="diary__card">
-              <div class="diary__card-inner">
-                <div class="diary__card-front">
-                  <figure diary__card-wrap>
-                    <img
-                      src="./assess/icon/cute.png"
-                      alt=""
-                      class="diary__card-img"
-                    />
-                  </figure>
-                  <p class="diary__card-day">20/07/2026</p>
-                  <h3 class="diary__card-heading">Hoa em cắm</h3>
-                  <p class="diary__card-desc">Hoa anh tặng em</p>
-                </div>
-                <div class="diary__card-back">
-                  <img
-                    src="./assess/img/our6.jpg"
-                    alt=""
-                    class="diary__preview-img"
-                  />
-                </div>
+            <article class="diary__memory">
+              <span class="diary__number" aria-hidden="true">03</span>
+              <button class="diary__photo-button" type="button" data-story-image="./assess/img/our6.jpg" data-story-caption="Hoa em cắm — Hoa anh tặng em" aria-label="Xem ảnh kỷ niệm Hoa em cắm">
+                <img src="./assess/img/our6.jpg" alt="Hoa em cắm" loading="lazy" decoding="async" />
+                <span class="diary__photo-hint" aria-hidden="true">Xem ảnh ↗</span>
+              </button>
+              <div class="diary__memory-content">
+                <span class="diary__date">20.07.2026</span>
+                <span class="diary__mini-title">Little things</span>
+                <h3>Hoa em cắm</h3>
+                <p>Hoa anh tặng em</p>
               </div>
             </article>
-            <article class="diary__card">
-              <div class="diary__card-inner">
-                <div class="diary__card-front">
-                  <figure diary__card-wrap>
-                    <img
-                      src="./assess/icon/bad.png"
-                      alt=""
-                      class="diary__card-img"
-                    />
-                  </figure>
-                  <p class="diary__card-day">25/07/2026</p>
-                  <h3 class="diary__card-heading">Đi ăn nem rán</h3>
-                  <p class="diary__card-desc">Lần đầu em dỗi anh</p>
-                </div>
-                <div class="diary__card-back">
-                  <img
-                    src="./assess/img/our7.jpg"
-                    alt=""
-                    class="diary__preview-img"
-                  />
-                </div>
+            <article class="diary__memory">
+              <span class="diary__number" aria-hidden="true">04</span>
+              <button class="diary__photo-button" type="button" data-story-image="./assess/img/our7.jpg" data-story-caption="Đi ăn nem rán — Lần đầu em dỗi anh" aria-label="Xem ảnh kỷ niệm Đi ăn nem rán">
+                <img src="./assess/img/our7.jpg" alt="Đi ăn nem rán" loading="lazy" decoding="async" />
+                <span class="diary__photo-hint" aria-hidden="true">Xem ảnh ↗</span>
+              </button>
+              <div class="diary__memory-content">
+                <span class="diary__date">25.07.2026</span>
+                <span class="diary__mini-title">A memorable date</span>
+                <h3>Đi ăn nem rán</h3>
+                <p>Lần đầu em dỗi anh</p>
               </div>
             </article>
-            <article class="diary__card">
-              <div class="diary__card-inner">
-                <div class="diary__card-front">
-                  <figure diary__card-wrap>
-                    <img
-                      src="./assess/icon/couple.png"
-                      alt=""
-                      class="diary__card-img"
-                    />
-                  </figure>
-                  <p class="diary__card-day">01/08/2026</p>
-                  <h3 class="diary__card-heading">Ngày đầu yêu</h3>
-                  <p class="diary__card-desc">Ngày tỏ tình</p>
-                </div>
-                <div class="diary__card-back">
-                  <img
-                    src="./assess/img/thu6.jpg"
-                    alt=""
-                    class="diary__preview-img"
-                  />
-                </div>
+            <article class="diary__memory">
+              <span class="diary__number" aria-hidden="true">05</span>
+              <button class="diary__photo-button" type="button" data-story-image="./assess/img/thu6.jpg" data-story-caption="Ngày đầu yêu — Ngày tỏ tình" aria-label="Xem ảnh kỷ niệm Ngày đầu yêu">
+                <img src="./assess/img/thu6.jpg" alt="Ngày đầu yêu" loading="lazy" decoding="async" />
+                <span class="diary__photo-hint" aria-hidden="true">Xem ảnh ↗</span>
+              </button>
+              <div class="diary__memory-content">
+                <span class="diary__date">01.08.2026</span>
+                <span class="diary__mini-title">Our special day</span>
+                <h3>Ngày đầu yêu</h3>
+                <p>Ngày tỏ tình</p>
               </div>
             </article>
           </div>
-          <div
-            class="diary__list animate__animated animate__zoomInUp show-on-mobile"
-          >
-            <div class="diary__scroll">
-              <article class="diary__card">
-                <div class="diary__card-inner">
-                  <div class="diary__card-front">
-                    <figure diary__card-wrap>
-                      <img
-                        src="./assess/icon/favourite (1).png"
-                        alt=""
-                        class="diary__card-img"
-                      />
-                    </figure>
-                    <p class="diary__card-day">29/06/2026</p>
-                    <h3 class="diary__card-heading">Tin Nhắn Đầu Tiên</h3>
-                    <p class="diary__card-desc">Ngày đầu tiên nhắn tin</p>
-                  </div>
-                  <div class="diary__card-back">
-                    <img
-                      src="./assess/img/FirstMessage.jpg"
-                      alt=""
-                      class="diary__preview-img"
-                    />
-                  </div>
-                </div>
-              </article>
-              <article class="diary__card">
-                <div class="diary__card-inner">
-                  <div class="diary__card-front">
-                    <figure diary__card-wrap>
-                      <img
-                        src="./assess/icon/handshake.png"
-                        alt=""
-                        class="diary__card-img"
-                      />
-                    </figure>
-                    <p class="diary__card-day">18/07/2026</p>
-                    <h3 class="diary__card-heading">Lần đầu gặp nhau</h3>
-                    <p class="diary__card-desc">Công viên Cầu Giấy</p>
-                  </div>
-                  <div class="diary__card-back">
-                    <img
-                      src="./assess/img/thu7.jpg"
-                      alt=""
-                      class="diary__preview-img"
-                    />
-                  </div>
-                </div>
-              </article>
-              <article class="diary__card">
-                <div class="diary__card-inner">
-                  <div class="diary__card-front">
-                    <figure diary__card-wrap>
-                      <img
-                        src="./assess/icon/cute.png"
-                        alt=""
-                        class="diary__card-img"
-                      />
-                    </figure>
-                    <p class="diary__card-day">20/07/2026</p>
-                    <h3 class="diary__card-heading">Hoa em cắm</h3>
-                    <p class="diary__card-desc">Hoa anh tặng em</p>
-                  </div>
-                  <div class="diary__card-back">
-                    <img
-                      src="./assess/img/our6.jpg"
-                      alt=""
-                      class="diary__preview-img"
-                    />
-                  </div>
-                </div>
-              </article>
-              <article class="diary__card">
-                <div class="diary__card-inner">
-                  <div class="diary__card-front">
-                    <figure diary__card-wrap>
-                      <img
-                        src="./assess/icon/bad.png"
-                        alt=""
-                        class="diary__card-img"
-                      />
-                    </figure>
-                    <p class="diary__card-day">25/07/2026</p>
-                    <h3 class="diary__card-heading">Đi ăn nem rán</h3>
-                    <p class="diary__card-desc">Lần đầu em dỗi anh</p>
-                  </div>
-                  <div class="diary__card-back">
-                    <img
-                      src="./assess/img/our7.jpg"
-                      alt=""
-                      class="diary__preview-img"
-                    />
-                  </div>
-                </div>
-              </article>
-              <article class="diary__card">
-                <div class="diary__card-inner">
-                  <div class="diary__card-front">
-                    <figure diary__card-wrap>
-                      <img
-                        src="./assess/icon/couple.png"
-                        alt=""
-                        class="diary__card-img"
-                      />
-                    </figure>
-                    <p class="diary__card-day">01/08/2026</p>
-                    <h3 class="diary__card-heading">Ngày đầu yêu</h3>
-                    <p class="diary__card-desc">Ngày tỏ tình</p>
-                  </div>
-                  <div class="diary__card-back">
-                    <img
-                      src="./assess/img/thu6.jpg"
-                      alt=""
-                      class="diary__preview-img"
-                    />
-                  </div>
-                </div>
-              </article>
-            </div>
+          <div class="diary__bottom">
+            <p>And the story is still being written… ♡</p>
+            <a href="#gallery" class="diary__see-gallery">Xem những bức ảnh của chúng mình <span aria-hidden="true">↗</span></a>
           </div>
-          <a href="./places.html" class="btn diary__btn" title="Xem thêm địa điểm kỷ niệm">Explore places ♡</a>
         </div>
       </section>
       <section class="place memory-place" id="place" aria-labelledby="place-heading" data-animate="animate__fadeInUp">
@@ -832,9 +661,11 @@
                   </select>
                 </div>
                 <div class="wishlist__field">
-                  <label for="wishlist-share-email">Email người nhận (không bắt buộc)</label>
-                  <input id="wishlist-share-email" type="email" inputmode="email" autocomplete="email"
-                    maxlength="254" placeholder="name@gmail.com" />
+                  <label for="wishlist-share-recipient">Gửi wishlist cho</label>
+                  <select id="wishlist-share-recipient">
+                    <option value="thu">💗 Thư — thuminhpham29@gmail.com</option>
+                    <option value="long">💌 Long — longprolc10@gmail.com</option>
+                  </select>
                 </div>
               </div>
               <div class="wishlist__share-actions">
@@ -884,326 +715,40 @@
           <p class="quote__author"></p>
         </div>
       </section>
-      <section class="gallery" id="gallery" data-animate="animate__rollIn">
+      <section class="gallery memories-gallery" id="gallery" aria-labelledby="gallery-heading">
         <div class="container">
-          <h2 class="heading-section gallery__heading">Gallery</h2>
-          <p class="gallery__desc">
-            Every photo captures a heartbeat of love — moments that shaped our
-            journey together.
-          </p>
-
-          <div class="gallery__content">
-            <nav class="gallery__nav">
-              <div class="gallery__nav-item">
-                <input
-                  type="radio"
-                  name="tab"
-                  id="tab1"
-                  class="gallery__nav-input"
-                  checked
-                />
-                <label for="tab1" class="gallery__nav-label">Long</label>
-              </div>
-              <div class="gallery__nav-item">
-                <input
-                  type="radio"
-                  name="tab"
-                  id="tab2"
-                  class="gallery__nav-input"
-                />
-                <label for="tab2" class="gallery__nav-label">Thư</label>
-              </div>
-              <div class="gallery__nav-item">
-                <input
-                  type="radio"
-                  name="tab"
-                  id="tab3"
-                  class="gallery__nav-input"
-                />
-                <label for="tab3" class="gallery__nav-label">Ours</label>
-              </div>
-            </nav>
-            <div class="gallery__tab gallery__tab-long show-on-mobile">
-              <div class="swiper gallerySwiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/Long.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/Long1.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/Long2.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/Long3.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/Long4.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/Long5.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/Long6.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                </div>
-                <!-- Pagination -->
-                <div class="swiper-pagination show-on-mobile"></div>
-
-                <!-- Navigation -->
-                <div class="swiper-button-prev show-on-mobile"></div>
-                <div class="swiper-button-next show-on-mobile"></div>
-              </div>
-            </div>
-            <div class="gallery__tab gallery__tab-long show-on-laptop">
-              <img src="./assess/img/Long.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/Long1.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/Long2.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/Long3.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/Long4.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/Long5.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/Long6.jpg" alt="" class="gallery__img" />
-            </div>
-
-            <div class="gallery__tab gallery__tab-thu show-on-laptop">
-              <img src="./assess/img/Thu1.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/Thu2.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/Thu3.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/Thu4.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/thu6.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/thu7.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/thu8.jpg" alt="" class="gallery__img" />
-              <!-- <img src="./assess/img/thu9.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/thu10.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/thu11.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/thu12.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/thu13.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/thu14.jpg" alt="" class="gallery__img" /> -->
-            </div>
-
-            <div class="gallery__tab gallery__tab-thu show-on-mobile">
-              <div class="swiper gallerySwiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/Thu1.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/Thu2.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/Thu3.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/Thu4.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/Thu5.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/thu6.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/thu6.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/thu7.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/thu8.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/thu9.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/thu10.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/thu11.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/thu12.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/thu13.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/thu14.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                </div>
-
-                <!-- Pagination -->
-                <div class="swiper-pagination"></div>
-
-                <!-- Navigation -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-              </div>
-            </div>
-
-            <div class="gallery__tab gallery__tab-ours show-on-laptop">
-              <img src="./assess/img/our1.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/our2.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/out3.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/our5.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/our6.jpg" alt="" class="gallery__img" />
-              <img src="./assess/img/our7.jpg" alt="" class="gallery__img" />
-            </div>
-            <div class="gallery__tab gallery__tab-ours show-on-mobile">
-              <div class="swiper gallerySwiper">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/our1.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/our2.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/our3.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/our4.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/our5.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/our6.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                  <div class="swiper-slide">
-                    <img
-                      src="./assess/img/our7.jpg"
-                      alt=""
-                      class="gallery__img"
-                    />
-                  </div>
-                </div>
-
-                <!-- Pagination -->
-                <div class="swiper-pagination"></div>
-
-                <!-- Navigation -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-              </div>
-            </div>
-
-            <div class="gallery__tab gallery__tab-all" id="tab1"></div>
+          <p class="memories__eyebrow">Snapshots of us ♡</p>
+          <h2 class="heading-section gallery__heading" id="gallery-heading">Our Gallery</h2>
+          <p class="gallery__desc">Một cuốn album nhỏ cho những khoảnh khắc đáng nhớ. Chọn album và nhấn vào ảnh để xem toàn màn hình.</p>
+          <div class="gallery__album-switch" role="tablist" aria-label="Chọn album ảnh">
+            <button id="gallery-tab-long" class="gallery__album-tab" type="button" role="tab" aria-controls="gallery-panel" aria-selected="true" data-album="long">Long ♡</button>
+            <button id="gallery-tab-thu" class="gallery__album-tab" type="button" role="tab" aria-controls="gallery-panel" aria-selected="false" tabindex="-1" data-album="thu">Thư ♡</button>
+            <button id="gallery-tab-ours" class="gallery__album-tab" type="button" role="tab" aria-controls="gallery-panel" aria-selected="false" tabindex="-1" data-album="ours">Together ♡</button>
           </div>
+          <div id="gallery-panel" class="gallery__panel" role="tabpanel" aria-labelledby="gallery-tab-long" tabindex="0">
+            <div class="gallery__album-heading">
+              <span id="gallery-album-title">Long, through my eyes</span>
+              <span id="gallery-photo-count">0 photos</span>
+            </div>
+            <div id="gallery-grid" class="gallery__photo-grid" aria-live="polite"></div>
+          </div>
+          <p class="gallery__end-note">Every photo tells a little story of us. ♡</p>
         </div>
       </section>
+      <dialog class="memories-lightbox" id="memories-lightbox" aria-label="Xem ảnh kỷ niệm">
+        <div class="memories-lightbox__frame">
+          <button class="memories-lightbox__close" id="memories-lightbox-close" type="button" aria-label="Đóng ảnh">×</button>
+          <button class="memories-lightbox__prev" id="memories-lightbox-prev" type="button" aria-label="Ảnh trước">‹</button>
+          <figure class="memories-lightbox__figure">
+            <img id="memories-lightbox-image" alt="" />
+            <figcaption class="memories-lightbox__caption">
+              <span id="memories-lightbox-title"></span>
+              <span id="memories-lightbox-count"></span>
+            </figcaption>
+          </figure>
+          <button class="memories-lightbox__next" id="memories-lightbox-next" type="button" aria-label="Ảnh tiếp theo">›</button>
+        </div>
+      </dialog>
       <section
         class="contact"
         data-animate="animate__rotateInDownRight"
@@ -1267,29 +812,35 @@
               </div>
             </div>
 
-            <form action="" id="discord-form" class="contact__card">
-              <p id="message-status" class="message-status" role="status" aria-live="polite"></p>
+            <form id="letter-form" class="contact__card contact__letter" novalidate>
+              <p class="contact__letter-eyebrow">from the heart, with love ♡</p>
               <h3 class="contact__card-heading">Whispers of the Heart</h3>
-              <textarea
-                name=""
-                id="message"
-                aria-label="Lời nhắn của bạn"
-                maxlength="2000"
-                required
-                placeholder="Enter your message here..."
-                class="contact__content"
-                rows="10"
-                cols="50"
-              ></textarea>
-              <button
-                class="contact__btn animate__animated animate__bounce"
-                type="submit"
-              >
-                Copy your message
-                <span class="btn__icon"
-                  ><i class="fa-solid fa-paper-plane" style="color: #ffffff"></i
-                ></span>
+              <p class="contact__letter-intro">Viết một lá thư thật dịu dàng cho người thương.</p>
+              <div class="contact__letter-fields">
+                <div class="contact__letter-field">
+                  <label for="letter-recipient">Gửi đến</label>
+                  <select id="letter-recipient" name="recipient" required>
+                    <option value="thu">💗 Thư — thuminhpham29@gmail.com</option>
+                    <option value="long">💌 Long — longprolc10@gmail.com</option>
+                  </select>
+                </div>
+                <div class="contact__letter-field">
+                  <label for="letter-title">Tiêu đề bức thư</label>
+                  <input id="letter-title" name="subject" type="text" maxlength="120" required
+                    placeholder="Ví dụ: Gửi người đặc biệt của anh ♡" />
+                </div>
+                <div class="contact__letter-field">
+                  <label for="message">Nội dung bức thư</label>
+                  <textarea id="message" name="message" class="contact__content" maxlength="2000" rows="7"
+                    required placeholder="Hôm nay có điều này muốn nói với cậu..."></textarea>
+                  <small id="letter-count" class="contact__letter-count">0 / 2000 ký tự</small>
+                </div>
+              </div>
+              <button class="contact__btn contact__letter-submit" type="submit">
+                Copy &amp; Open Gmail <span class="btn__icon" aria-hidden="true">✉</span>
               </button>
+              <p class="message-status" id="message-status" role="status" aria-live="polite"></p>
+              <p class="contact__letter-note">Bấm nút để sao chép thư và mở bản nháp Gmail với đúng địa chỉ. Bạn sẽ tự kiểm tra và nhấn gửi trong Gmail.</p>
             </form>
           </div>
         </div>
@@ -1584,44 +1135,7 @@
       // Gán author
       document.querySelector(".quote__author").innerText = `– ${quote.author}`;
     </script>
-    <script>
-      const inputs = document.querySelectorAll(".gallery__nav-input");
-      const tabs = document.querySelectorAll(".gallery__tab");
-
-      const tabMap = {
-        tab1: "gallery__tab-long",
-        tab2: "gallery__tab-thu",
-        tab3: "gallery__tab-ours",
-        tab4: "gallery__tab-all",
-      };
-
-      inputs.forEach((input) => {
-        input.addEventListener("change", () => {
-          // 1. Ẩn tất cả các tab
-          tabs.forEach((tab) => tab.classList.remove("active"));
-
-          // 2. Lấy class của tab cần hiện
-          const selectedId = input.id;
-          const tabClass = tabMap[selectedId];
-
-          // 3. Tìm *TẤT CẢ* các tab (cả mobile và laptop) có class đó và active chúng
-          const selectedTabs = document.querySelectorAll(`.${tabClass}`);
-          selectedTabs.forEach((tab) => {
-            tab.classList.add("active");
-          });
-        });
-      });
-
-      // Khởi tạo tab mặc định khi load trang
-      window.addEventListener("DOMContentLoaded", () => {
-        const checkedInput = document.querySelector(
-          ".gallery__nav-input:checked"
-        );
-        if (checkedInput) {
-          checkedInput.dispatchEvent(new Event("change"));
-        }
-      });
-    </script>
+    
     <!-- Contact message handling is in experience.js. No public webhook secrets. -->
     <script>
       const texts = ["Thanh Long", "n.longg1805"];
@@ -1685,35 +1199,13 @@
           .forEach((el) => observer.observe(el));
       });
     </script>
+    <script src="./assess/js/mail-share.js" defer></script>
     <script src="./assess/js/experience.js" defer></script>
+    <script src="./assess/js/memories.js" defer></script>
     <script src="./assess/js/wishlist.js" defer></script>
     <!-- Swiper Js  -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-      const swiper = new Swiper(".gallerySwiper", {
-        loop: true,
-        spaceBetween: 20,
-        slidesPerView: 1.2, // Vuốt ngang
-        centeredSlides: true,
-        grabCursor: true,
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        navigation: {
-          nextEl: ".swiper-button-next",
-          prevEl: ".swiper-button-prev",
-        },
-        breakpoints: {
-          768: {
-            slidesPerView: 2.5,
-          },
-          1024: {
-            slidesPerView: 3.5,
-          },
-        },
-      });
-    </script>
+
+    
       <button class="back-to-top" type="button" aria-label="Quay lên đầu trang">↑</button>
   </body>
 </html>
