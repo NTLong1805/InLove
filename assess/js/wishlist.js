@@ -197,15 +197,16 @@
     }
   });
 
-  // Share the actual local data, not just a page URL: localStorage is device-specific.
-  // Gmail/Telegram receive only a user-approved draft; we never send automatically.
+  // Share browser-local gift data as a complete, human-readable message.
+  // Email recipient is selected explicitly; neither Gmail nor Telegram auto-sends.
   const shareScope = document.getElementById('wishlist-share-scope');
-  const shareEmail = document.getElementById('wishlist-share-email');
+  const shareRecipient = document.getElementById('wishlist-share-recipient');
   const shareStatus = document.getElementById('wishlist-share-status');
   const shareButtons = Array.from(document.querySelectorAll('[data-wishlist-share]'));
+  const mail = window.InLoveShare;
 
   function shareMessage() {
-    const who = shareScope && shareScope.value === 'all' ? ['thu', 'long'] : [recipient];
+    const who = shareScope?.value === 'all' ? ['thu', 'long'] : [recipient];
     const lines = ['♡ INLOVE — OUR GIFT WISHLIST', '', 'Những món quà nhỏ dành cho nhau ♡'];
     who.forEach(person => {
       const list = gifts.filter(gift => gift.recipient === person);
@@ -232,79 +233,62 @@
     shareStatus.dataset.state = error ? 'error' : 'success';
   }
 
-  async function copyShareText(message) {
-    try {
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        await navigator.clipboard.writeText(message);
-        setShareStatus('Đã sao chép toàn bộ wishlist! Bạn có thể dán vào Gmail hoặc Telegram ♡', false);
-        return;
-      }
-      // Clipboard API may not exist in embedded/insecure browsers.
-      const temporary = document.createElement('textarea');
-      temporary.value = message;
-      temporary.setAttribute('readonly', '');
-      temporary.style.position = 'fixed';
-      temporary.style.left = '-9999px';
-      document.body.append(temporary);
-      temporary.select();
-      const copied = document.execCommand && document.execCommand('copy');
-      temporary.remove();
-      if (!copied) throw new Error('Clipboard unavailable');
-      setShareStatus('Đã sao chép toàn bộ wishlist ♡', false);
-    } catch {
-      setShareStatus('Không thể sao chép tự động. Hãy mở trang bằng HTTPS hoặc thử trình duyệt khác.', true);
-    }
-  }
-
   shareButtons.forEach(button => {
     button.addEventListener('click', () => {
       const mode = button.dataset.wishlistShare;
-      const message = shareMessage();
-      if (mode === 'copy') {
-        void copyShareText(message);
+      const to = mail?.recipients[shareRecipient?.value || recipient];
+      if (!to || !mail) {
+        setShareStatus('Không xác định được người nhận. Hãy tải lại trang.', true);
         return;
       }
+      const body = shareMessage();
+      const subject = shareScope?.value === 'all'
+        ? 'Our Gift Wishlist ♡ | Long & Thư'
+        : 'Gift Wishlist ♡ | Dành tặng ' + (recipient === 'thu' ? 'Thư' : 'Long');
+      const complete = mail.draftText(to.email, subject, body);
 
-      let target;
+      if (mode === 'copy') {
+        void mail.copy(complete).then(ok =>
+          setShareStatus(ok ? 'Đã sao chép email, tiêu đề và danh sách quà ♡' : 'Trình duyệt chặn sao chép. Hãy thử trên HTTPS.', !ok)
+        );
+        return;
+      }
       if (mode === 'gmail') {
-        const email = shareEmail ? shareEmail.value.trim() : '';
-        if (email && !shareEmail.checkValidity()) {
-          setShareStatus('Địa chỉ email chưa hợp lệ. Vui lòng kiểm tra lại.', true);
-          shareEmail.focus();
+        const result = mail.copyAndCompose({ to:to.email, subject, body });
+        setShareStatus(
+          result.tooLong
+            ? 'Wishlist quá dài cho liên kết Gmail. Đã thử sao chép toàn bộ; hãy dán trực tiếp trong Gmail.'
+            : 'Đã yêu cầu mở Gmail gửi đến ' + to.name + '. Bạn cần kiểm tra và nhấn Gửi.',
+          result.tooLong
+        );
+        result.copyResult.then(ok => {
+          if (ok) setShareStatus(shareStatus.textContent + ' Đồng thời đã sao chép toàn bộ nội dung và tiêu đề ♡', result.tooLong);
+          else setShareStatus(shareStatus.textContent + ' Trình duyệt không cho phép sao chép.', true);
+        });
+        return;
+      }
+      if (mode === 'telegram') {
+        // Telegram sharing chooses a recipient inside the Telegram app.
+        const copyPromise = mail.copy(complete);
+        const target = new URL('https://t.me/share/url');
+        target.searchParams.set('url', window.location.href.split('#')[0] + '#wishlist');
+        target.searchParams.set('text', body);
+        if (target.href.length > 5500) {
+          setShareStatus('Nội dung dài; hãy bấm Copy wishlist rồi dán trong Telegram.', true);
           return;
         }
-        target = new URL('https://mail.google.com/mail/');
-        target.searchParams.set('view', 'cm');
-        target.searchParams.set('fs', '1');
-        if (email) target.searchParams.set('to', email);
-        target.searchParams.set('su', 'Our Gift Wishlist ♡ | Long & Thư');
-        target.searchParams.set('body', message);
-      } else if (mode === 'telegram') {
-        // Telegram requires a URL parameter; the gift content is in the text.
-        target = new URL('https://t.me/share/url');
-        const currentPage = window.location.href.split('#')[0] + '#wishlist';
-        target.searchParams.set('url', currentPage);
-        target.searchParams.set('text', message);
-      } else {
-        return;
+        window.open(target.href, '_blank', 'noopener,noreferrer');
+        setShareStatus('Đã yêu cầu mở Telegram. Chọn cuộc trò chuyện và tự nhấn Gửi nhé ♡', false);
+        copyPromise.then(ok => {
+          if (ok) setShareStatus(shareStatus.textContent + ' Nội dung cũng đã được sao chép.', false);
+        });
       }
-
-      // Query-string sharing can exceed URL limits with long wishlists.
-      // Never silently truncate a gift; offer the complete text via copy instead.
-      if (target.href.length > 5500) {
-        setShareStatus('Wishlist hơi dài để mở bản nháp bằng đường dẫn. Hãy chọn “Copy wishlist” rồi dán vào ứng dụng nhé.', true);
-        return;
-      }
-
-      window.open(target.href, '_blank', 'noopener,noreferrer');
-      setShareStatus(
-        mode === 'gmail'
-          ? 'Đã yêu cầu mở Gmail. Kiểm tra người nhận và nội dung, sau đó nhấn Gửi trong Gmail nhé ♡'
-          : 'Đã yêu cầu mở Telegram. Chọn cuộc trò chuyện, kiểm tra nội dung và tự nhấn gửi nhé ♡',
-        false
-      );
     });
   });
 
+  // The selected gift tab also selects the corresponding default email recipient.
+  tabs.forEach(tab => tab.addEventListener('click', () => {
+    if (shareRecipient) shareRecipient.value = tab.dataset.recipient;
+  }));
   setRecipient(recipient);
 })();
