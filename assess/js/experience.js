@@ -51,32 +51,55 @@
     img.decoding = 'async';
     if (!img.hasAttribute('loading') && !img.closest('.hero') && index > 2) img.loading = 'lazy';
   });
-  // For a static GitHub Pages site, never put service credentials in the browser.
-  // Instead, let visitors explicitly copy their composed message.
-  const form = $('#discord-form');
+  // Letters are copied and opened as Gmail drafts. Static GitHub Pages cannot send mail.
+  const form = $('#letter-form');
+  const titleInput = $('#letter-title');
+  const recipientInput = $('#letter-recipient');
   const textarea = $('#message');
+  const count = $('#letter-count');
   const status = $('#message-status');
-  if (form && textarea && status) {
-    form.addEventListener('submit', async event => {
+  const share = window.InLoveShare;
+  if (form && titleInput && recipientInput && textarea && status && share) {
+    textarea.addEventListener('input', () => {
+      if (count) count.textContent = textarea.value.length + ' / 2000 ký tự';
+    });
+    form.addEventListener('submit', event => {
       event.preventDefault();
+      const title = titleInput.value.trim();
       const message = textarea.value.trim();
-      if (!message) {
+      const recipient = share.recipients[recipientInput.value];
+      if (!recipient || !title || !message) {
         status.dataset.state = 'error';
-        status.textContent = 'Bạn hãy viết một lời nhắn trước nhé ♡';
-        textarea.focus();
+        status.textContent = 'Hãy chọn người nhận và nhập cả tiêu đề lẫn nội dung bức thư ♡';
+        (!title ? titleInput : !message ? textarea : recipientInput).focus();
         return;
       }
-      try {
-        if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
-        await navigator.clipboard.writeText(message);
-        status.dataset.state = 'success';
-        status.textContent = 'Đã sao chép lời nhắn! Bạn có thể dán và gửi qua kênh yêu thích ♡';
-      } catch {
-        textarea.focus();
-        textarea.select();
+      if (title.length > 120 || message.length > 2000) {
         status.dataset.state = 'error';
-        status.textContent = 'Hãy sao chép nội dung đang được chọn để gửi nhé ♡';
+        status.textContent = 'Bức thư đã vượt quá giới hạn ký tự.';
+        return;
       }
+      const result = share.copyAndCompose({
+        to: recipient.email,
+        subject: title,
+        body: message
+      });
+      if (result.tooLong) {
+        status.dataset.state = 'error';
+        status.textContent = 'Thư hơi dài cho liên kết Gmail; mình đã thử sao chép đầy đủ để bạn dán thủ công.';
+      } else {
+        status.dataset.state = 'success';
+        status.textContent = 'Đã yêu cầu mở Gmail gửi đến ' + recipient.name + '. Vui lòng kiểm tra và tự nhấn Gửi.';
+      }
+      // Do not claim copying worked until the browser confirms it.
+      result.copyResult.then(ok => {
+        if (ok) {
+          status.textContent += ' Tiêu đề, email và nội dung cũng đã được sao chép ♡';
+        } else {
+          status.dataset.state = 'error';
+          status.textContent += ' Trình duyệt không cho phép tự sao chép; bạn vẫn có thể dùng bản nháp Gmail.';
+        }
+      });
     });
   }
 })();
