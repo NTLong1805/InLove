@@ -11,6 +11,13 @@
     menuTrigger?.setAttribute('aria-expanded', 'false');
   };
   if (menu) {
+    menuTrigger?.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        menu.checked = !menu.checked;
+        menu.dispatchEvent(new Event('change'));
+      }
+    });
     menu.addEventListener('change', () => menuTrigger?.setAttribute('aria-expanded', String(menu.checked)));
     drawer?.querySelectorAll('a[href^="#"]').forEach(link => link.addEventListener('click', closeMenu));
     document.addEventListener('keydown', event => {
