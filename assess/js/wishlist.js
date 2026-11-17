@@ -122,6 +122,7 @@
     empty.hidden = selected.length > 0;
     total.textContent = String(selected.length);
     giftedCount.textContent = String(selected.filter(gift => gift.gifted).length);
+    refreshEmailPreview();
   }
 
   function setRecipient(value) {
@@ -133,6 +134,9 @@
       if (active) panel.setAttribute('aria-labelledby', tab.id);
     });
     feedback.textContent = '';
+    if (shareRecipient) shareRecipient.value = value;
+    subjectEdited = false;
+    syncSubject();
     render();
   }
 
@@ -197,34 +201,41 @@
     }
   });
 
-  // Share browser-local gift data as a complete, human-readable message.
-  // Email recipient is selected explicitly; neither Gmail nor Telegram auto-sends.
+  // Compose beautiful plain-text emails with a visible preview.
+  // No automatic sending is possible from static GitHub Pages.
   const shareScope = document.getElementById('wishlist-share-scope');
   const shareRecipient = document.getElementById('wishlist-share-recipient');
+  const emailSubject = document.getElementById('wishlist-email-subject');
+  const emailNote = document.getElementById('wishlist-email-note');
+  const includeSamples = document.getElementById('wishlist-include-samples');
+  const emailSummary = document.getElementById('wishlist-email-summary');
+  const emailPreview = document.getElementById('wishlist-email-preview');
   const shareStatus = document.getElementById('wishlist-share-status');
   const shareButtons = Array.from(document.querySelectorAll('[data-wishlist-share]'));
   const mail = window.InLoveShare;
+  const formatter = window.InLoveWishlistEmail;
+  let subjectEdited = false;
 
-  function shareMessage() {
-    const who = shareScope?.value === 'all' ? ['thu', 'long'] : [recipient];
-    const lines = ['♡ INLOVE — OUR GIFT WISHLIST', '', 'Những món quà nhỏ dành cho nhau ♡'];
-    who.forEach(person => {
-      const list = gifts.filter(gift => gift.recipient === person);
-      lines.push('', person === 'thu' ? '🎀 DÀNH TẶNG THƯ' : '🎁 DÀNH TẶNG LONG');
-      if (!list.length) {
-        lines.push('Chưa có món quà nào.');
-        return;
-      }
-      list.forEach((gift, i) => {
-        lines.push((i + 1) + '. ' + categories[gift.category].icon + ' ' + gift.name +
-          (gift.sample ? ' [Gợi ý mẫu]' : ''));
-        lines.push('   ' + (gift.gifted ? '✓ Đã tặng' : '♡ Chưa tặng'));
-        if (gift.note.trim()) lines.push('   Lời nhắn: ' + gift.note.trim());
-        if (gift.url) lines.push('   Link: ' + gift.url);
-      });
+  function syncSubject() {
+    if (!subjectEdited && formatter && emailSubject) {
+      emailSubject.value = formatter.suggestedSubject(shareScope?.value, recipient);
+    }
+  }
+
+  function buildEmail() {
+    if (!formatter || !mail) return null;
+    const to = mail.recipients[shareRecipient?.value || recipient];
+    if (!to) return null;
+    return formatter.format({
+      gifts,
+      scope: shareScope?.value || 'current',
+      activeRecipient: recipient,
+      to,
+      subject: emailSubject?.value,
+      personalNote: emailNote?.value,
+      includeSamples: includeSamples?.checked === true,
+      categories,
     });
-    lines.push('', 'Made with ♡ by InLove');
-    return lines.join('\n');
   }
 
   function setShareStatus(message, error) {
@@ -233,62 +244,96 @@
     shareStatus.dataset.state = error ? 'error' : 'success';
   }
 
+  function refreshEmailPreview() {
+    const email = buildEmail();
+    if (!email) {
+      shareButtons.forEach(button => { button.disabled = true; });
+      if (emailSummary) emailSummary.textContent = 'Không thể chuẩn bị email. Vui lòng tải lại trang.';
+      return;
+    }
+
+    if (emailPreview) emailPreview.value = email.complete;
+    shareButtons.forEach(button => { button.disabled = !email.valid; });
+    if (emailSummary) {
+      const missingSubject = !email.subject;
+      emailSummary.dataset.empty = String(!email.valid);
+      emailSummary.textContent = email.count === 0
+        ? '♡ Chưa có món quà thật nào để gửi. Hãy thêm quà hoặc bật tùy chọn gợi ý mẫu.'
+        : missingSubject
+          ? '♡ Đã chọn ' + email.count + ' món, nhưng cần nhập tiêu đề email trước khi gửi.'
+          : '♡ ' + email.count + ' món quà · ' + email.pending + ' chưa tặng · ' +
+            email.gifted + ' đã tặng · Gửi tới ' + email.toName + '.';
+    }
+  }
+
+  // Form changes update the preview immediately without overwriting a custom subject.
+  shareScope?.addEventListener('change', () => {
+    syncSubject();
+    refreshEmailPreview();
+  });
+  shareRecipient?.addEventListener('change', refreshEmailPreview);
+  emailSubject?.addEventListener('input', () => {
+    subjectEdited = true;
+    refreshEmailPreview();
+  });
+  emailNote?.addEventListener('input', refreshEmailPreview);
+  includeSamples?.addEventListener('change', refreshEmailPreview);
+
   shareButtons.forEach(button => {
     button.addEventListener('click', () => {
       const mode = button.dataset.wishlistShare;
-      const to = mail?.recipients[shareRecipient?.value || recipient];
-      if (!to || !mail) {
-        setShareStatus('Không xác định được người nhận. Hãy tải lại trang.', true);
+      const email = buildEmail();
+      if (!email || !email.valid || !mail) {
+        setShareStatus('Hãy chọn người nhận, nhập tiêu đề và có ít nhất một món quà trước khi gửi nhé ♡', true);
         return;
       }
-      const body = shareMessage();
-      const subject = shareScope?.value === 'all'
-        ? 'Our Gift Wishlist ♡ | Long & Thư'
-        : 'Gift Wishlist ♡ | Dành tặng ' + (recipient === 'thu' ? 'Thư' : 'Long');
-      const complete = mail.draftText(to.email, subject, body);
-
       if (mode === 'copy') {
-        void mail.copy(complete).then(ok =>
-          setShareStatus(ok ? 'Đã sao chép email, tiêu đề và danh sách quà ♡' : 'Trình duyệt chặn sao chép. Hãy thử trên HTTPS.', !ok)
-        );
+        void mail.copy(email.complete).then(ok => {
+          setShareStatus(ok
+            ? 'Đã sao chép email người nhận, tiêu đề và toàn bộ danh sách quà ♡'
+            : 'Trình duyệt không cho phép tự sao chép. Hãy sao chép nội dung trong phần Xem trước.',
+            !ok);
+        });
         return;
       }
       if (mode === 'gmail') {
-        const result = mail.copyAndCompose({ to:to.email, subject, body });
+        const result = mail.copyAndCompose({
+          to: email.toEmail,
+          subject: email.subject,
+          body: email.body
+        });
         setShareStatus(
           result.tooLong
-            ? 'Wishlist quá dài cho liên kết Gmail. Đã thử sao chép toàn bộ; hãy dán trực tiếp trong Gmail.'
-            : 'Đã yêu cầu mở Gmail gửi đến ' + to.name + '. Bạn cần kiểm tra và nhấn Gửi.',
+            ? 'Email quá dài để mở qua liên kết Gmail. Đang thử sao chép đầy đủ; hãy dán vào Gmail thủ công.'
+            : 'Đã yêu cầu mở bản nháp Gmail gửi cho ' + email.toName + '. Kiểm tra thư rồi tự nhấn Gửi.',
           result.tooLong
         );
         result.copyResult.then(ok => {
-          if (ok) setShareStatus(shareStatus.textContent + ' Đồng thời đã sao chép toàn bộ nội dung và tiêu đề ♡', result.tooLong);
-          else setShareStatus(shareStatus.textContent + ' Trình duyệt không cho phép sao chép.', true);
+          if (ok) setShareStatus(shareStatus.textContent + ' Toàn bộ tiêu đề và nội dung cũng đã được sao chép.', result.tooLong);
+          else setShareStatus(shareStatus.textContent + ' Không sao chép tự động được; bạn có thể sao chép từ bản xem trước.', true);
         });
         return;
       }
       if (mode === 'telegram') {
-        // Telegram sharing chooses a recipient inside the Telegram app.
-        const copyPromise = mail.copy(complete);
-        const target = new URL('https://t.me/share/url');
-        target.searchParams.set('url', window.location.href.split('#')[0] + '#wishlist');
-        target.searchParams.set('text', body);
-        if (target.href.length > 5500) {
-          setShareStatus('Nội dung dài; hãy bấm Copy wishlist rồi dán trong Telegram.', true);
-          return;
+        // Telegram only opens a share sheet. It cannot target an email address.
+        const telegram = new URL('https://t.me/share/url');
+        telegram.searchParams.set('url', window.location.href.split('#')[0] + '#wishlist');
+        telegram.searchParams.set('text', email.subject + '\n\n' + email.body);
+        const copyResult = mail.copy(email.complete);
+        if (telegram.href.length > 5500) {
+          setShareStatus('Tin nhắn quá dài. Đang thử sao chép để bạn dán vào Telegram thủ công.', true);
+        } else {
+          window.open(telegram.href, '_blank', 'noopener,noreferrer');
+          setShareStatus('Đã yêu cầu mở Telegram. Hãy chọn cuộc trò chuyện, kiểm tra rồi tự nhấn Gửi.', false);
         }
-        window.open(target.href, '_blank', 'noopener,noreferrer');
-        setShareStatus('Đã yêu cầu mở Telegram. Chọn cuộc trò chuyện và tự nhấn Gửi nhé ♡', false);
-        copyPromise.then(ok => {
-          if (ok) setShareStatus(shareStatus.textContent + ' Nội dung cũng đã được sao chép.', false);
+        copyResult.then(ok => {
+          if (ok) setShareStatus(shareStatus.textContent + ' Nội dung cũng đã được sao chép.', shareStatus.dataset.state === 'error');
+          else setShareStatus(shareStatus.textContent + ' Nếu cần, hãy sao chép bản xem trước.', true);
         });
       }
     });
   });
 
-  // The selected gift tab also selects the corresponding default email recipient.
-  tabs.forEach(tab => tab.addEventListener('click', () => {
-    if (shareRecipient) shareRecipient.value = tab.dataset.recipient;
-  }));
+  syncSubject();
   setRecipient(recipient);
 })();
