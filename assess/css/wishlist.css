@@ -103,3 +103,48 @@
   .memory-place__link, .wishlist__card, .wishlist__tab { transition:none; }
   .memory-place__link:hover, .wishlist__card:hover { transform:none; }
 }
+
+/* Wishlist sharing: email/Telegram compose and copy controls. */
+.wishlist__share {
+  margin-top:25px; padding:25px;
+  border-radius:22px;
+  border:1px solid #f0bfd3;
+  background:linear-gradient(128deg,#fff5fa 0%,#fff9fd 51%,#f9efff 100%);
+}
+.wishlist__share-intro { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; margin-bottom:20px; }
+.wishlist__share-eyebrow { margin:0 0 2px; font:24px "Dancing Script",cursive; color:#cf4c8d; }
+.wishlist__share-intro h3 { margin:0 0 8px; color:#7d3a60; font-size:20px; font-weight:600; }
+.wishlist__share-intro p:last-child { margin:0; color:#8a6379; font-size:13px; line-height:1.6; }
+.wishlist__share-icon {
+  display:grid; place-items:center; flex-shrink:0; width:54px; height:54px;
+  border-radius:18px; background:white; box-shadow:0 6px 20px #ce609824;
+  color:#c64984; font-size:30px;
+}
+.wishlist__share-fields { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.wishlist__share-actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+.wishlist__share-button {
+  display:inline-flex; align-items:center; justify-content:center; gap:9px;
+  min-height:46px; padding:12px 18px; border:1px solid transparent;
+  border-radius:999px; font-size:14px; font-weight:600;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.wishlist__share-button:hover { transform:translateY(-2px); box-shadow:0 8px 18px #bb538229; }
+.wishlist__share-button span { font-size:19px; line-height:1; }
+.wishlist__share-button--gmail { color:white; background:linear-gradient(105deg,#d6458d,#df6b97); }
+.wishlist__share-button--telegram { color:white; background:linear-gradient(105deg,#278abc,#4daed2); }
+.wishlist__share-button--copy { color:#a54a77; border-color:#e7c3d3; background:white; }
+.wishlist__share-status { min-height:1.45em; margin:13px 0 0; color:#843e61; font-size:13px; line-height:1.6; }
+.wishlist__share-status[data-state="error"] { color:#a92747; }
+.wishlist__share-disclaimer { margin:7px 0 0; color:#98768b; font-size:12px; line-height:1.6; }
+@media(max-width:630px) {
+  .wishlist__share { padding:18px 15px; }
+  .wishlist__share-fields { grid-template-columns:1fr; gap:12px; }
+  .wishlist__share-intro h3 { font-size:18px; }
+  .wishlist__share-icon { width:42px; height:42px; font-size:23px; }
+  .wishlist__share-button { flex:1 1 160px; }
+  .wishlist__share-button--copy { flex-basis:100%; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .wishlist__share-button { transition:none; }
+  .wishlist__share-button:hover { transform:none; }
+}
