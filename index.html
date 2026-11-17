@@ -648,7 +648,7 @@
                 <div>
                   <p class="wishlist__share-eyebrow">send a little wish ♡</p>
                   <h3 id="wishlist-share-heading">Share our Wishlist</h3>
-                  <p>Chọn danh sách, rồi mở Gmail hoặc Telegram với lời nhắn đã được soạn sẵn.</p>
+                  <p>Viết lời nhắn, kiểm tra bản xem trước và gửi wishlist thật chỉn chu cho người thương ♡</p>
                 </div>
                 <span class="wishlist__share-icon" aria-hidden="true">✉</span>
               </div>
@@ -668,21 +668,45 @@
                   </select>
                 </div>
               </div>
+              <div class="wishlist__share-compose">
+                <div class="wishlist__field">
+                  <label for="wishlist-email-subject">Tiêu đề email <span aria-hidden="true">♡</span></label>
+                  <input id="wishlist-email-subject" type="text" maxlength="120" required
+                    placeholder="Một chút yêu thương dành cho cậu ♡" />
+                </div>
+                <div class="wishlist__field">
+                  <label for="wishlist-email-note">Lời nhắn riêng (không bắt buộc)</label>
+                  <textarea id="wishlist-email-note" rows="3" maxlength="500"
+                    placeholder="Mình muốn gửi tới cậu những điều bé xíu nhưng thật đặc biệt..."></textarea>
+                </div>
+                <label class="wishlist__sample-option" for="wishlist-include-samples">
+                  <input id="wishlist-include-samples" type="checkbox" />
+                  <span>Đính kèm cả các món quà gợi ý mẫu</span>
+                </label>
+                <p id="wishlist-email-summary" class="wishlist__share-summary" aria-live="polite"></p>
+                <details class="wishlist__preview-wrap">
+                  <summary>Xem trước toàn bộ email <span aria-hidden="true">⌄</span></summary>
+                  <div class="wishlist__preview-inner">
+                    <label for="wishlist-email-preview">Nội dung sẽ sao chép / mở trong Gmail</label>
+                    <textarea id="wishlist-email-preview" rows="13" readonly aria-label="Bản xem trước email wishlist"></textarea>
+                  </div>
+                </details>
+              </div>
               <div class="wishlist__share-actions">
                 <button class="wishlist__share-button wishlist__share-button--gmail" type="button" data-wishlist-share="gmail">
-                  <span aria-hidden="true">✉</span> Open Gmail
+                  <span aria-hidden="true">✉</span> Copy &amp; Open Gmail
                 </button>
                 <button class="wishlist__share-button wishlist__share-button--telegram" type="button" data-wishlist-share="telegram">
                   <span aria-hidden="true">➤</span> Open Telegram
                 </button>
                 <button class="wishlist__share-button wishlist__share-button--copy" type="button" data-wishlist-share="copy">
-                  <span aria-hidden="true">▢</span> Copy wishlist
+                  <span aria-hidden="true">▢</span> Sao chép email
                 </button>
               </div>
               <p class="wishlist__share-status" id="wishlist-share-status" role="status" aria-live="polite"></p>
               <p class="wishlist__share-disclaimer">
-                Bạn sẽ kiểm tra và nhấn gửi trong Gmail/Telegram. Website không tự gửi tin nhắn,
-                không lưu địa chỉ email và không sử dụng API key.
+                Gmail/Telegram chỉ mở bản nháp và không tự gửi. Nội dung được sao chép để bạn có thể dán khi cần.
+                Dữ liệu wishlist lưu trên trình duyệt của bạn, không tự đồng bộ giữa hai người.
               </p>
             </div>
           </div>
