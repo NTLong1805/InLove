@@ -1,0 +1,42 @@
+/* Letter composer — preserve InLove's pastel palette while improving form UX. */
+.contact { padding:100px 16px 110px; background:linear-gradient(130deg,#fffafb,#fbe6f3 58%,#f5e7ff); }
+.contact .contact__desc { max-width:700px; margin:0 auto 42px; font-size:15px; line-height:1.75; }
+.contact .contact__card-list { align-items:stretch; gap:27px; flex-wrap:wrap; }
+.contact .contact__card { max-width:100%; height:auto; min-height:unset; }
+.contact .contact__card.show-on-laptop { width:min(350px,100%); background:#fff9fdee; color:#69455d; border:1px solid #f1d4e1; }
+.contact .contact__card.show-on-laptop .contact__card-heading { color:#95416c; }
+.contact .contact__card-info { width:100%; }
+.contact .contact__list { margin-top:26px; }
+.contact .contact__item { padding:14px 12px; background:#ffedf5; }
+.contact .contact__info { overflow-wrap:anywhere; font-size:13px; }
+.contact__letter.contact__card {
+  width:min(545px,100%); min-height:unset; padding:34px;
+  border:1px solid #f4bbd3; background:linear-gradient(135deg,#d94784,#e974a2);
+  box-shadow:0 18px 40px #bb428238;
+}
+.contact__letter-eyebrow { font:25px "Dancing Script",cursive; color:#fff3fa; text-align:center; }
+.contact__letter.contact__card .contact__card-heading { margin:0; line-height:1.4; font-size:26px; }
+.contact__letter .contact__card-heading::before { display:none; }
+.contact__letter-intro { margin:12px 0 22px; color:#fff4fa; font-size:13px; text-align:center; line-height:1.6; }
+.contact__letter-fields { display:flex; flex-direction:column; gap:15px; }
+.contact__letter-field { display:flex; flex-direction:column; gap:8px; min-width:0; }
+.contact__letter-field label { font-size:13px; color:white; font-weight:600; }
+.contact__letter-field :is(input,select,textarea) { width:100%; padding:12px 14px; border:1px solid #ffe8f1; border-radius:13px; background:white; color:#60394a; outline:none; box-shadow:0 2px 8px #5c173318; font:14px Poppins,sans-serif; }
+.contact__letter-field :is(input,select) { min-height:46px; }
+.contact__letter-field textarea { min-height:160px; margin:0; resize:vertical; line-height:1.65; }
+.contact__letter-field :is(input,select,textarea):focus-visible { outline:3px solid #fff7ca; outline-offset:2px; }
+.contact__letter-field :is(input,textarea)::placeholder { color:#a68c97; }
+.contact__letter-count { align-self:flex-end; font-size:11px; color:#fff0f7; }
+.contact__letter-submit.contact__btn { width:100%; min-height:49px; margin:20px auto 0; padding:13px 20px; border-radius:999px; background:#fff8fc; color:#b43875; box-shadow:0 7px 18px #6b22472b; font-weight:700; }
+.contact__letter-submit:hover { opacity:1; transform:translateY(-2px); background:#fff; }
+.contact__letter .message-status { min-height:1.3em; margin:14px 0 5px; color:#fff; line-height:1.55; font-size:13px; }
+.contact__letter .message-status[data-state="error"] { color:#fff9c8; }
+.contact__letter-note { margin:8px 0 0; text-align:center; color:#ffe6f0; font-size:11px; line-height:1.7; }
+@media(max-width:736px) {
+  .contact { padding:75px 13px 86px; }
+  .contact .contact__card-list { gap:16px; }
+  .contact__letter.contact__card { padding:24px 18px; }
+  .contact .contact__desc { font-size:14px; }
+  .contact__letter .contact__card-heading { font-size:23px; }
+}
+@media(prefers-reduced-motion:reduce) { .contact__letter-submit:hover { transform:none; } }
