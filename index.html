@@ -128,6 +128,7 @@
     <!-- Swiper Css -->
     <link rel="stylesheet" href="./assess/css/swiper.css" />
     <link rel="stylesheet" href="./assess/css/wishlist.css" />
+    <link rel="stylesheet" href="./assess/css/place-preview.css" />
   </head>
   <body>
     <a class="skip-link" href="#home">Bỏ qua điều hướng</a>
@@ -693,17 +694,53 @@
           <a href="./places.html" class="btn diary__btn" title="Xem thêm địa điểm kỷ niệm">Explore places ♡</a>
         </div>
       </section>
-      <section class="place memory-place" id="place" data-animate="animate__fadeInUp">
+      <section class="place memory-place" id="place" aria-labelledby="place-heading" data-animate="animate__fadeInUp">
         <div class="container">
           <p class="gallery__desc">every place has a memory</p>
-          <h2 class="heading-section gallery__heading">Places We’ve Been</h2>
+          <h2 class="heading-section gallery__heading" id="place-heading">Places We’ve Been</h2>
           <p class="memory-place__intro">
             Từng nơi chúng mình đã đi qua đều giữ lại một câu chuyện nhỏ.
-            Cùng mở cuốn nhật ký những nơi đặc biệt ấy nhé ♡
+            Hãy cùng mở cuốn nhật ký những nơi đặc biệt ấy nhé ♡
           </p>
+          <div class="memory-place__gallery">
+            <a class="memory-place__card" href="./places.html" aria-label="Xem kỷ niệm tại Seoul Garden">
+              <div class="memory-place__photo">
+                <img src="./assess/img/our1.jpg" alt="Ảnh kỷ niệm tại Seoul Garden" loading="lazy" decoding="async" />
+                <span class="memory-place__number" aria-hidden="true">01</span>
+              </div>
+              <div class="memory-place__card-body">
+                <span class="memory-place__city">♡ Hà Nội</span>
+                <h3>Seoul Garden</h3>
+                <p>Our first hotpot together. So many laughs.</p>
+              </div>
+            </a>
+            <a class="memory-place__card" href="./places.html" aria-label="Xem kỷ niệm chuyến đi Đà Lạt">
+              <div class="memory-place__photo">
+                <img src="./assess/img/our2.jpg" alt="Ảnh kỷ niệm chuyến đi Đà Lạt" loading="lazy" decoding="async" />
+                <span class="memory-place__number" aria-hidden="true">02</span>
+              </div>
+              <div class="memory-place__card-body">
+                <span class="memory-place__city">♡ Đà Lạt</span>
+                <h3>Đà Lạt</h3>
+                <p>Cold weather, warm hearts.</p>
+              </div>
+            </a>
+            <a class="memory-place__card" href="./places.html" aria-label="Xem kỷ niệm tại Cộng Cà Phê">
+              <div class="memory-place__photo">
+                <img src="./assess/img/our4.jpg" alt="Ảnh kỷ niệm tại Cộng Cà Phê" loading="lazy" decoding="async" />
+                <span class="memory-place__number" aria-hidden="true">03</span>
+              </div>
+              <div class="memory-place__card-body">
+                <span class="memory-place__city">♡ Hà Nội</span>
+                <h3>Cộng Cà Phê</h3>
+                <p>A little afternoon date, just us.</p>
+              </div>
+            </a>
+          </div>
           <a class="memory-place__link" href="./places.html">
-            Explore our places <span aria-hidden="true">↗</span>
+            Explore all our places <span aria-hidden="true">↗</span>
           </a>
+          <span class="memory-place__signature" aria-hidden="true">collecting memories, one date at a time ♡</span>
         </div>
       </section>
 
@@ -777,6 +814,46 @@
                 <p class="wishlist__feedback" id="wishlist-feedback" role="status" aria-live="polite"></p>
               </div>
             </form>
+            <div class="wishlist__share" aria-labelledby="wishlist-share-heading">
+              <div class="wishlist__share-intro">
+                <div>
+                  <p class="wishlist__share-eyebrow">send a little wish ♡</p>
+                  <h3 id="wishlist-share-heading">Share our Wishlist</h3>
+                  <p>Chọn danh sách, rồi mở Gmail hoặc Telegram với lời nhắn đã được soạn sẵn.</p>
+                </div>
+                <span class="wishlist__share-icon" aria-hidden="true">✉</span>
+              </div>
+              <div class="wishlist__share-fields">
+                <div class="wishlist__field">
+                  <label for="wishlist-share-scope">Danh sách muốn gửi</label>
+                  <select id="wishlist-share-scope">
+                    <option value="current">Người đang chọn</option>
+                    <option value="all">Cả Long và Thư</option>
+                  </select>
+                </div>
+                <div class="wishlist__field">
+                  <label for="wishlist-share-email">Email người nhận (không bắt buộc)</label>
+                  <input id="wishlist-share-email" type="email" inputmode="email" autocomplete="email"
+                    maxlength="254" placeholder="name@gmail.com" />
+                </div>
+              </div>
+              <div class="wishlist__share-actions">
+                <button class="wishlist__share-button wishlist__share-button--gmail" type="button" data-wishlist-share="gmail">
+                  <span aria-hidden="true">✉</span> Open Gmail
+                </button>
+                <button class="wishlist__share-button wishlist__share-button--telegram" type="button" data-wishlist-share="telegram">
+                  <span aria-hidden="true">➤</span> Open Telegram
+                </button>
+                <button class="wishlist__share-button wishlist__share-button--copy" type="button" data-wishlist-share="copy">
+                  <span aria-hidden="true">▢</span> Copy wishlist
+                </button>
+              </div>
+              <p class="wishlist__share-status" id="wishlist-share-status" role="status" aria-live="polite"></p>
+              <p class="wishlist__share-disclaimer">
+                Bạn sẽ kiểm tra và nhấn gửi trong Gmail/Telegram. Website không tự gửi tin nhắn,
+                không lưu địa chỉ email và không sử dụng API key.
+              </p>
+            </div>
           </div>
           <p class="wishlist__privacy">
             ♡ Danh sách được lưu trên trình duyệt hiện tại bằng localStorage.

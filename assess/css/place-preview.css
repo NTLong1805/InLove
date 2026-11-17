@@ -1,0 +1,82 @@
+/* InLove Places preview — layered on top of existing romantic site design. */
+.memory-place {
+  position:relative;
+  isolation:isolate;
+  overflow:hidden;
+  padding:82px 18px 76px;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255,255,255,.62),transparent 28%),
+    radial-gradient(circle at 89% 68%, rgba(246,211,255,.72),transparent 30%),
+    linear-gradient(115deg,#ffdae9 0%,#f8d5ed 52%,#e9ccfc 100%);
+}
+.memory-place::before, .memory-place::after {
+  position:absolute;
+  z-index:-1;
+  font-family:"Dancing Script",cursive;
+  color:#d6458d;
+  opacity:.17;
+  line-height:1;
+  pointer-events:none;
+}
+.memory-place::before { content:"♡"; top:18%; left:2%; font-size:clamp(62px,9vw,148px); transform:rotate(-13deg); }
+.memory-place::after { content:"✧"; bottom:6%; right:4%; font-size:clamp(48px,7vw,110px); }
+.memory-place .container { position:relative; }
+.memory-place .gallery__desc { margin-bottom:12px; font-size:17px; }
+.memory-place .heading-section { margin-bottom:14px; }
+.memory-place__intro { max-width:650px; margin:0 auto 42px; color:#7d506a; line-height:1.85; font-size:15px; }
+.memory-place__gallery { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; max-width:1080px; margin:0 auto 36px; align-items:stretch; }
+.memory-place__card {
+  display:block; min-width:0; padding:12px 12px 18px; border-radius:19px;
+  border:1px solid rgba(246,220,229,.95);
+  background:#fffdfd; text-align:left; color:#694056;
+  box-shadow:0 14px 35px rgba(118,49,93,.12), 0 1px 4px rgba(118,49,93,.03);
+  transform:rotate(-1.25deg);
+  transition:transform .28s ease, box-shadow .28s ease;
+}
+.memory-place__card:nth-child(2) { transform:translateY(-9px) rotate(1.5deg); }
+.memory-place__card:nth-child(3) { transform:rotate(-.8deg); }
+.memory-place__card:hover { transform:translateY(-9px) rotate(0); box-shadow:0 24px 42px rgba(118,49,93,.21); }
+.memory-place__card:focus-visible { outline:3px solid #ae356e; outline-offset:5px; }
+.memory-place__photo {
+  position:relative;
+  width:100%;
+  aspect-ratio: 1.25;
+  overflow:hidden;
+  border-radius:12px;
+  background:#f6e2ec;
+}
+.memory-place__photo img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .45s ease; }
+.memory-place__card:hover img { transform:scale(1.045); }
+.memory-place__number {
+  position:absolute; left:13px; top:13px;
+  display:grid; place-items:center; height:36px; min-width:36px;
+  border-radius:12px; background:#fffef0f2; color:#b83d79;
+  font-family:Georgia,serif; font-size:14px; box-shadow:0 2px 8px #0001;
+}
+.memory-place__card-body { padding:18px 9px 4px; }
+.memory-place__city { display:inline-block; margin-bottom:8px; color:#bd5386; font-size:12px; font-weight:600; letter-spacing:.03em; }
+.memory-place__card-body h3 { margin:0 0 9px; color:#75435e; font-size:20px; font-weight:600; line-height:1.35; }
+.memory-place__card-body p { margin:0; color:#946b80; font-size:13px; line-height:1.65; }
+.memory-place__link { margin:8px auto 0; background:#fff9fd; }
+.memory-place__signature { display:block; margin:20px auto 0; font:23px "Dancing Script",cursive; color:#b6477b; }
+@media(max-width:850px) {
+  .memory-place { padding:65px 18px 66px; }
+  .memory-place__gallery { gap:14px; }
+  .memory-place__card { padding:9px 9px 13px; }
+  .memory-place__card-body { padding:13px 6px 5px; }
+  .memory-place__card-body h3 { font-size:18px; }
+}
+@media(max-width:630px) {
+  .memory-place { padding:55px 14px 64px; }
+  .memory-place__intro { margin-bottom:30px; }
+  .memory-place__gallery { grid-template-columns:1fr; max-width:380px; gap:20px; margin-bottom:22px; }
+  .memory-place__card, .memory-place__card:nth-child(2), .memory-place__card:nth-child(3) { transform:none; }
+  .memory-place__photo { aspect-ratio:1.6; }
+  .memory-place__card-body { padding:14px 10px 7px; }
+  .memory-place__card-body h3 { font-size:20px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .memory-place__card, .memory-place__photo img { transition:none; }
+  .memory-place__card:hover,.memory-place__card:nth-child(2):hover,.memory-place__card:nth-child(3):hover { transform:none; }
+  .memory-place__card:hover img { transform:none; }
+}
