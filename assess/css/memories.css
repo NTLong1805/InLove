@@ -1,0 +1,95 @@
+/* InLove — one responsive Diary & Gallery, no duplicated mobile markup. */
+.memories-diary.diary {
+  position:relative; margin-top:0; padding:110px 18px 100px;
+  background:linear-gradient(180deg,#fff4f7,#fde7ec 65%,#fff6fa);
+  overflow:hidden;
+}
+.memories-diary::before { content:"♡"; position:absolute; right:4%; top:9%; font:130px "Dancing Script",cursive; color:#d6458d; opacity:.11; pointer-events:none; }
+.memories__eyebrow { text-align:center; margin:0 auto 12px; color:#ba4b80; font:24px "Dancing Script",cursive; }
+.memories-diary .heading-section, .memories-gallery .heading-section { margin-bottom:14px; font-size:clamp(45px,6vw,65px); }
+.memories-diary .diary__desc, .memories-gallery .gallery__desc {
+  width:min(690px,100%); max-width:100%; margin:0 auto 48px;
+  font-size:15px; line-height:1.85; color:#795365;
+  background:none; -webkit-text-fill-color:currentColor;
+}
+.diary__timeline { position:relative; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:28px; margin:0 auto; max-width:1120px; }
+.diary__timeline::before { content:""; position:absolute; left:0; right:0; top:28px; height:2px; background:linear-gradient(90deg,transparent,#edb2c9,#e5b6dd,transparent); }
+.diary__memory {
+  position:relative; min-width:0; border-radius:22px; padding:17px;
+  background:#fffdfedc; border:1px solid #f4dce8;
+  box-shadow:0 12px 32px rgba(144,60,110,.08);
+  transition:transform .25s,box-shadow .25s;
+}
+.diary__memory:hover { transform:translateY(-5px); box-shadow:0 20px 38px rgba(144,60,110,.14); }
+.diary__number { position:relative; z-index:1; display:grid; place-items:center; margin:0 0 18px; width:43px; height:43px; border-radius:50%; background:#da5c93; color:#fff; font:600 13px Poppins,sans-serif; box-shadow:0 0 0 6px #fff5fa; }
+.diary__photo-button { position:relative; display:block; width:100%; aspect-ratio:1.35; overflow:hidden; padding:0; border:0; border-radius:15px; background:#fae3ed; cursor:zoom-in; }
+.diary__photo-button img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .35s; }
+.diary__photo-button:hover img { transform:scale(1.04); }
+.diary__photo-hint { position:absolute; right:10px; bottom:10px; background:#fffdf1eb; padding:8px 12px; border-radius:999px; color:#ac3770; font-size:12px; font-weight:600; }
+.diary__memory-content { display:flex; flex-direction:column; gap:7px; padding:15px 5px 5px; }
+.diary__date { color:#ba5480; font-size:13px; font-weight:700; letter-spacing:.03em; }
+.diary__mini-title { font:21px "Dancing Script",cursive; color:#bd6a92; }
+.diary__memory-content h3 { margin:0; color:#733d5a; font-size:19px; line-height:1.4; font-weight:600; }
+.diary__memory-content p { margin:0; color:#946879; font-size:13px; line-height:1.65; }
+.diary__bottom { display:flex; gap:18px; align-items:center; justify-content:space-between; margin:38px auto 0; max-width:1120px; flex-wrap:wrap; }
+.diary__bottom p { margin:0; color:#b25684; font:25px "Dancing Script",cursive; }
+.diary__see-gallery { display:inline-flex; min-height:44px; justify-content:center; align-items:center; gap:9px; padding:10px 19px; border:1px solid #e9b8d1; border-radius:999px; background:white; color:#a83e75; font-size:13px; font-weight:600; }
+.diary__see-gallery:hover { background:#fff4fa; }
+/* Gallery: album tabs, photo grid and modal preview */
+.memories-gallery.gallery { padding:100px 18px 112px; background:linear-gradient(150deg,#fff4fa,#fde7ec); }
+.gallery__album-switch { display:flex; gap:7px; justify-content:center; flex-wrap:wrap; width:fit-content; max-width:100%; margin:0 auto 25px; padding:7px; background:#fffbfe; border:1px solid #f0c9da; border-radius:999px; box-shadow:0 8px 24px #a8487b0c; }
+.gallery__album-tab { min-height:45px; padding:11px 24px; border:0; background:transparent; border-radius:999px; color:#955574; font:600 14px Poppins,sans-serif; cursor:pointer; transition:background .2s,color .2s; }
+.gallery__album-tab[aria-selected="true"] { background:linear-gradient(100deg,#d64b8d,#e480a4); color:white; box-shadow:0 7px 17px #d6458d2b; }
+.gallery__album-tab:not([aria-selected="true"]):hover { background:#fff0f7; }
+.gallery__panel { max-width:1130px; margin:0 auto; padding:24px; border-radius:28px; background:#fffdfedd; box-shadow:0 18px 55px rgba(137,53,97,.09); border:1px solid #f5dbe6; }
+.gallery__album-heading { display:flex; justify-content:space-between; gap:12px; align-items:center; flex-wrap:wrap; margin-bottom:21px; color:#a34c79; }
+#gallery-album-title { font:27px "Dancing Script",cursive; }
+#gallery-photo-count { padding:7px 11px; border-radius:999px; background:#fff0f5; font-size:12px; font-weight:600; }
+.gallery__photo-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+.gallery__tile { position:relative; display:block; min-width:0; aspect-ratio:1; padding:0; border:0; border-radius:16px; overflow:hidden; background:#fce4f1; cursor:zoom-in; }
+.gallery__tile img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .3s ease, filter .3s ease; }
+.gallery__tile:hover img { transform:scale(1.045); filter:brightness(.88); }
+.gallery__tile-overlay { position:absolute; inset:auto 0 0; padding:35px 12px 12px; background:linear-gradient(transparent,#24141a99); color:white; font:600 12px Poppins,sans-serif; text-align:left; opacity:0; transition:opacity .2s; }
+.gallery__tile:hover .gallery__tile-overlay, .gallery__tile:focus-visible .gallery__tile-overlay { opacity:1; }
+.gallery__end-note { margin:29px 0 0; color:#b64d7e; font:26px "Dancing Script",cursive; text-align:center; }
+/* Native dialog: keyboard accessible and focus trapped by browser. */
+dialog.memories-lightbox:not([open]) { display:none; }
+dialog.memories-lightbox[open] { display:flex; align-items:center; justify-content:center; }
+.memories-lightbox { width:min(1000px,95vw); max-width:95vw; max-height:94dvh; margin:auto; padding:0; border:0; border-radius:24px; overflow:hidden; color:white; background:#2d202b; box-shadow:0 30px 90px #20121f66; }
+.memories-lightbox::backdrop { background:rgba(20,12,25,.79); backdrop-filter:blur(7px); }
+.memories-lightbox__frame { display:grid; grid-template-columns:50px minmax(0,1fr) 50px; align-items:center; gap:7px; width:100%; padding:46px 15px 15px; }
+.memories-lightbox__figure { min-width:0; margin:0; text-align:center; }
+.memories-lightbox__figure img { display:block; width:100%; max-height:72dvh; object-fit:contain; border-radius:11px; }
+.memories-lightbox__caption { display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap; text-align:left; padding:12px 4px 2px; font-size:13px; color:#fff0f6; }
+.memories-lightbox button { border:0; display:grid; place-items:center; border-radius:50%; cursor:pointer; color:white; background:#ffffff25; }
+.memories-lightbox button:hover { background:#ffffff40; }
+.memories-lightbox__prev,.memories-lightbox__next { width:45px; height:45px; font-size:33px; }
+.memories-lightbox__close { position:absolute; top:10px; right:12px; width:36px; height:36px; font-size:26px; }
+.memories-lightbox button[hidden] { display:none; }
+@media(max-width:850px) {
+  .diary__timeline { grid-template-columns:repeat(2,minmax(0,1fr)); gap:17px; }
+  .gallery__photo-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+}
+@media(max-width:600px) {
+  .memories-diary.diary { padding:72px 12px 70px; }
+  .memories-gallery.gallery { padding:76px 12px 80px; }
+  .memories-diary .diary__desc,.memories-gallery .gallery__desc { font-size:14px; margin-bottom:29px; }
+  .diary__timeline { display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding:12px 3px 25px; overscroll-behavior-inline:contain; scrollbar-width:thin; }
+  .diary__timeline::before { display:none; }
+  .diary__memory { flex:0 0 min(78vw,290px); scroll-snap-align:center; padding:14px; }
+  .diary__bottom { justify-content:center; text-align:center; }
+  .gallery__album-switch { width:100%; gap:3px; padding:5px; }
+  .gallery__album-tab { flex:1; min-width:0; padding:11px 7px; font-size:12px; }
+  .gallery__panel { padding:12px; border-radius:19px; }
+  .gallery__photo-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:9px; }
+  .gallery__tile { border-radius:10px; }
+  .gallery__tile-overlay { opacity:1; }
+  .memories-lightbox { width:100vw; max-width:100vw; max-height:100dvh; border-radius:0; }
+  .memories-lightbox__frame { grid-template-columns:32px minmax(0,1fr) 32px; gap:4px; padding:56px 5px 14px; }
+  .memories-lightbox__prev,.memories-lightbox__next { width:32px; height:40px; font-size:25px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .diary__memory,.diary__photo-button img,.gallery__tile img,.gallery__tile-overlay { transition:none; }
+  .diary__memory:hover { transform:none; }
+  .diary__photo-button:hover img,.gallery__tile:hover img { transform:none; }
+}
