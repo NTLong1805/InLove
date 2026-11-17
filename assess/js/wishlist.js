@@ -210,10 +210,12 @@
   const includeSamples = document.getElementById('wishlist-include-samples');
   const emailSummary = document.getElementById('wishlist-email-summary');
   const emailPreview = document.getElementById('wishlist-email-preview');
+  const richPreview = document.getElementById('wishlist-rich-preview');
   const shareStatus = document.getElementById('wishlist-share-status');
   const shareButtons = Array.from(document.querySelectorAll('[data-wishlist-share]'));
   const mail = window.InLoveShare;
   const formatter = window.InLoveWishlistEmail;
+  const rich = window.InLoveWishlistRich;
   let subjectEdited = false;
 
   function syncSubject() {
@@ -253,6 +255,9 @@
     }
 
     if (emailPreview) emailPreview.value = email.complete;
+    if (richPreview) richPreview.srcdoc = (email.valid && rich)
+      ? rich.render(email, categories)
+      : '<!doctype html><html lang="vi"><body style="font:15px Arial,sans-serif;color:#985b77;text-align:center;padding:60px 18px;background:#fff7fb">Hãy thêm quà và nhập tiêu đề để xem thiệp email ♡</body></html>';
     shareButtons.forEach(button => { button.disabled = !email.valid; });
     if (emailSummary) {
       const missingSubject = !email.subject;
@@ -287,30 +292,41 @@
         setShareStatus('Hãy chọn người nhận, nhập tiêu đề và có ít nhất một món quà trước khi gửi nhé ♡', true);
         return;
       }
+      const html = rich?.render(email, categories) || '';
       if (mode === 'copy') {
-        void mail.copy(email.complete).then(ok => {
-          setShareStatus(ok
-            ? 'Đã sao chép email người nhận, tiêu đề và toàn bộ danh sách quà ♡'
-            : 'Trình duyệt không cho phép tự sao chép. Hãy sao chép nội dung trong phần Xem trước.',
-            !ok);
+        void rich.copyRich(html, email.body).then(format => {
+          setShareStatus(
+            format === 'html'
+              ? 'Đã sao chép thiệp HTML có màu sắc và thẻ quà. Mở Gmail rồi dán (Ctrl+V hoặc ⌘V) vào phần nội dung nhé ♡'
+              : format === 'text'
+                ? 'Trình duyệt chỉ sao chép được văn bản. Bạn có thể dán nội dung vào Gmail, nhưng sẽ không có kiểu dáng HTML.'
+                : 'Không sao chép được. Hãy thử lại trên Chrome/Edge bằng HTTPS hoặc sử dụng bản văn bản dự phòng.',
+            format !== 'html'
+          );
         });
         return;
       }
       if (mode === 'gmail') {
-        const result = mail.copyAndCompose({
-          to: email.toEmail,
-          subject: email.subject,
-          body: email.body
-        });
-        setShareStatus(
-          result.tooLong
-            ? 'Email quá dài để mở qua liên kết Gmail. Đang thử sao chép đầy đủ; hãy dán vào Gmail thủ công.'
-            : 'Đã yêu cầu mở bản nháp Gmail gửi cho ' + email.toName + '. Kiểm tra thư rồi tự nhấn Gửi.',
-          result.tooLong
-        );
-        result.copyResult.then(ok => {
-          if (ok) setShareStatus(shareStatus.textContent + ' Toàn bộ tiêu đề và nội dung cũng đã được sao chép.', result.tooLong);
-          else setShareStatus(shareStatus.textContent + ' Không sao chép tự động được; bạn có thể sao chép từ bản xem trước.', true);
+        // Open Gmail with To/Subject already set and EMPTY body. Rich HTML can only
+        // be inserted by the user pasting the HTML clipboard into the compose editor.
+        // Clipboard write must start immediately from the click's user activation.
+        const copyResult = rich.copyRich(html, email.body);
+        const url = mail.gmailUrl({ to:email.toEmail, subject:email.subject, body:'' });
+        try {
+          window.open(url, '_blank', 'noopener,noreferrer');
+        } catch {
+          setShareStatus('Không mở được Gmail tự động. Hãy mở Gmail thủ công rồi dán thiệp đã sao chép.', true);
+        }
+        copyResult.then(format => {
+          setShareStatus(
+            format === 'html'
+              ? 'Đã sao chép thiệp HTML! Trong Gmail gửi đến ' + email.toName +
+                ', nhấn Ctrl+V (Mac: ⌘V) trong ô nội dung rồi kiểm tra và nhấn Gửi ♡'
+              : format === 'text'
+                ? 'Gmail đã được yêu cầu mở nhưng trình duyệt chỉ cho sao chép văn bản. Nhấn Ctrl+V trong Gmail; định dạng màu có thể không giữ được.'
+                : 'Không sao chép được thiệp. Bạn có thể dùng bản văn bản dự phòng ở phần xem trước để gửi thủ công.',
+            format !== 'html'
+          );
         });
         return;
       }
