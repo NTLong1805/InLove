@@ -1,97 +1,126 @@
 <!DOCTYPE html>
 <html lang="vi">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Places We've Been | InLove</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cuốn nhật ký những nơi Long và Thư từng ghé qua, với những buổi hẹn và kỷ niệm nhỏ." />
+  <meta name="theme-color" content="#fff3f7" />
+  <title>Places We've Been ♡ | Long &amp; Thư</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./assess/css/reset.css" />
+  <link rel="stylesheet" href="./assess/css/places.css" />
+  <script src="./assess/js/places.js" defer></script>
+</head>
+<body class="places-page">
+  <a class="places-skip-link" href="#places-list">Bỏ qua điều hướng</a>
+  <header class="places-header">
+    <div class="places-container places-header__inner">
+      <a href="./index.html#home" class="places-logo" aria-label="InLove, trở về trang chính">Inlove<span>♡</span></a>
+      <nav class="places-nav" aria-label="Điều hướng">
+        <a href="./index.html#diary">Our Diary</a>
+        <a href="./index.html#gallery">Gallery</a>
+        <a href="./index.html#wishlist">Wishlist</a>
+      </nav>
+      <a href="./index.html#place" class="places-back"><span aria-hidden="true">←</span> Back home</a>
+    </div>
+  </header>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
-    />
-
-    <link rel="stylesheet" href="./assess/css/reset.css" />
-    <link rel="stylesheet" href="./assess/css/places.css" />
-  </head>
-
-  <body class="places-page">
-    <header class="places-header">
-      <div class="places-container places-header__inner">
-        <a href="./index.html#home" class="places-logo">Inlove</a>
-
-        <nav class="places-nav" aria-label="Main navigation">
-          <a href="./index.html#home">Home</a>
-          <a href="./index.html#info">About Us</a>
-          <a href="./index.html#diary">Our Story</a>
-          <a href="./index.html#gallery">Gallery</a>
-        </nav>
-
-        <a href="./index.html#home" class="places-back">
-          <i class="fa-solid fa-arrow-left"></i>
-          Back home
-        </a>
-      </div>
-    </header>
-
-    <main>
-      <section class="places-hero">
-        <div class="places-container">
+  <main>
+    <section class="places-hero" aria-labelledby="places-heading">
+      <div class="places-container places-hero__inner">
+        <div class="places-hero__copy">
           <p class="places-eyebrow">Little places, big memories ♡</p>
-          <h1>Places We've Been</h1>
+          <h1 id="places-heading">Places We've <em>Been</em></h1>
           <p class="places-intro">
-            Những nơi chúng mình đã cùng nhau đi qua, những bữa ăn,
-            những buổi hẹn và những khoảnh khắc vẫn còn ở lại.
+            Không phải cứ đi thật xa mới có kỷ niệm đẹp. Một bữa ăn, một tách cà phê hay
+            một chuyến đi cùng nhau cũng đủ tạo nên câu chuyện của riêng hai đứa.
           </p>
-
-          <div class="places-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input
-              id="placesSearch"
-              type="search"
-              placeholder="Search our memories..."
-              autocomplete="off"
-              aria-label="Search places"
-            />
-            <button id="clearSearch" type="button" aria-label="Clear search">
-              <i class="fa-solid fa-xmark"></i>
-            </button>
+          <div class="places-hero__details">
+            <span class="places-hero__pill">♡ Long &amp; Thư</span>
+            <span class="places-hero__pill"><strong id="placesTotal">0</strong> nơi đáng nhớ</span>
           </div>
-
-          <div class="places-toolbar">
-            <p id="placesResultCount">0 memories</p>
-            <label class="places-sort">
-              <span>Sort</span>
-              <select id="placesSort">
-                <option value="newest">Newest first</option>
-                <option value="oldest">Oldest first</option>
-                <option value="name">Name A-Z</option>
-              </select>
-            </label>
-          </div>
-
-          <div id="placesGrid" class="places-grid"></div>
-
-          <div id="placesEmpty" class="places-empty" hidden>
-            <span>♡</span>
-            <h2>Chưa tìm thấy kỷ niệm này</h2>
-            <p>Thử tìm bằng tên địa điểm, thành phố hoặc món yêu thích nhé.</p>
-          </div>
-
-          <nav id="placesPagination" class="places-pagination" aria-label="Places pagination"></nav>
+          <a class="places-hero__explore" href="#places-list">Khám phá kỷ niệm <span aria-hidden="true">↗</span></a>
         </div>
-      </section>
-    </main>
+        <div class="places-hero__photos" aria-label="Những bức ảnh kỷ niệm">
+          <figure class="places-hero__polaroid places-hero__polaroid--one">
+            <img src="./assess/img/our1.jpg" alt="Một kỷ niệm trong album của Long và Thư" width="380" height="320" decoding="async" />
+            <figcaption>together ♡</figcaption>
+          </figure>
+          <figure class="places-hero__polaroid places-hero__polaroid--two">
+            <img src="./assess/img/our2.jpg" alt="Ảnh chuyến đi trong album của hai người" width="380" height="320" decoding="async" />
+            <figcaption>our little world</figcaption>
+          </figure>
+          <span class="places-hero__heart" aria-hidden="true">♡</span>
+        </div>
+      </div>
+    </section>
 
-    <footer class="places-footer">
-      <p>Made with ♡ by Long &amp; Thư</p>
-    </footer>
+    <section class="places-memories" id="places-list" aria-labelledby="places-list-heading">
+      <div class="places-container">
+        <p class="places-section-eyebrow">Every place tells a story</p>
+        <h2 id="places-list-heading">Our Memory Map <span aria-hidden="true">♡</span></h2>
+        <p class="places-section-intro">Tìm một địa điểm, xem lại ảnh, rồi nhớ xem hôm ấy chúng mình đã vui thế nào.</p>
 
-    <script src="./assess/js/places.js"></script>
-  </body>
+        <div class="places-toolbar">
+          <div class="places-search">
+            <span class="places-search__icon" aria-hidden="true">⌕</span>
+            <input id="placesSearch" type="search" placeholder="Tìm theo địa điểm, thành phố, món ăn..." autocomplete="off" aria-label="Tìm kỷ niệm" />
+            <button id="clearSearch" type="button" aria-label="Xóa tìm kiếm">×</button>
+          </div>
+          <label class="places-sort" for="placesSort">
+            <span>Sắp xếp</span>
+            <select id="placesSort">
+              <option value="newest">Mới nhất</option>
+              <option value="oldest">Cũ nhất</option>
+              <option value="name">Tên A–Z</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="places-results-heading">
+          <p id="placesResultCount" role="status" aria-live="polite">Đang tải kỷ niệm...</p>
+          <span>Click “Xem kỷ niệm” để đọc thêm ♡</span>
+        </div>
+        <div id="placesGrid" class="places-grid"></div>
+
+        <div id="placesEmpty" class="places-empty" hidden>
+          <span aria-hidden="true">♡</span>
+          <h3>Chưa tìm thấy kỷ niệm này</h3>
+          <p>Thử tìm bằng tên địa điểm, thành phố hoặc món ăn yêu thích nhé.</p>
+          <button type="button" id="placesReset">Xem tất cả kỷ niệm</button>
+        </div>
+        <nav id="placesPagination" class="places-pagination" aria-label="Phân trang kỷ niệm"></nav>
+      </div>
+    </section>
+
+    <section class="places-end">
+      <div class="places-container">
+        <span aria-hidden="true">♡</span>
+        <h2>Still writing our story</h2>
+        <p>Vẫn còn rất nhiều nơi chúng mình sẽ cùng đặt chân đến.</p>
+        <a href="./index.html#diary">Quay lại Our Diary ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="places-dialog" id="placesDialog" aria-labelledby="placesDialogTitle">
+    <button class="places-dialog__close" type="button" id="placesDialogClose" aria-label="Đóng chi tiết kỷ niệm">×</button>
+    <img class="places-dialog__image" id="placesDialogImage" alt="" />
+    <div class="places-dialog__body">
+      <p id="placesDialogMeta" class="places-dialog__meta"></p>
+      <h2 id="placesDialogTitle"></h2>
+      <p id="placesDialogDescription" class="places-dialog__description"></p>
+      <div class="places-dialog__favourite" id="placesDialogFavorite"></div>
+      <div id="placesDialogTags" class="places-dialog__tags"></div>
+    </div>
+  </dialog>
+
+  <footer class="places-footer">
+    <p>Made with <span aria-label="love">♡</span> by Long &amp; Thư</p>
+    <a href="./index.html#home">Back to InLove ↑</a>
+  </footer>
+</body>
 </html>
