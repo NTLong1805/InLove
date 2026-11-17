@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>InLove</title>
+    <title>Long &amp; Thư | Our Little Love Story</title>
+    <meta name="description" content="Một góc nhỏ lưu giữ những kỷ niệm, hình ảnh và hành trình yêu thương của Long và Thư." />
+    <meta name="color-scheme" content="light" />
     <!-- Favicon -->
     <link
       rel="apple-touch-icon"
@@ -122,14 +124,16 @@
     />
     <!-- AOS CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+    <link rel="stylesheet" href="./assess/css/experience.css" />
     <!-- Swiper Css -->
     <link rel="stylesheet" href="./assess/css/swiper.css" />
   </head>
   <body>
+    <a class="skip-link" href="#home">Bỏ qua điều hướng</a>
     <header class="header">
       <div class="container">
         <div class="header-top">
-          <label for="menu-checkbox" class="toggle-menu">
+          <label for="menu-checkbox" class="toggle-menu" role="button" tabindex="0" aria-controls="mobile-navigation" aria-expanded="false" aria-label="Mở menu điều hướng">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
               <path
                 fill="currentColor"
@@ -137,7 +141,7 @@
               />
             </svg>
           </label>
-          <a href="#!" class="logo-link">
+          <a href="#home" class="logo-link" aria-label="InLove - về đầu trang">
             <span class="logo-name">Inlove</span>
           </a>
           <nav class="navigation-bar pc-nav">
@@ -164,7 +168,7 @@
       <input type="checkbox" class="menu-checkbox" name="" id="menu-checkbox" />
       <!-- Overlay -->
       <label for="menu-checkbox" class="menu-overlay"></label>
-      <div class="menu-drawer">
+      <div class="menu-drawer" id="mobile-navigation">
         <nav class="navigation-bar">
           <ul class="nav-item">
             <li class="item"><a href="#home" class="item-link">Home</a></li>
@@ -243,6 +247,11 @@
                   </div>
                 </div>
                 <p class="hero__since">since 01 August 2026</p>
+                <span class="heart-note">Every day with you is my favourite ♡</span>
+              </div>
+              <div class="hero__action">
+                <a class="hero__action-primary" href="#diary">Khám phá chuyện chúng mình ♡</a>
+                <a class="hero__action-secondary" href="#gallery">Xem album ảnh</a>
               </div>
             </div>
 
@@ -678,7 +687,7 @@
               </article>
             </div>
           </div>
-          <a href="" class="btn diary__btn" title="Chưa hoàn thiện">Add More</a>
+          <a href="./places.html" class="btn diary__btn" title="Xem thêm địa điểm kỷ niệm">Explore places ♡</a>
         </div>
       </section>
       <section class="grow" id="grow" data-animate="animate__jackInTheBox">
@@ -689,7 +698,7 @@
         <p class="gallery__desc">every place has a memory</p>
         <h2 class="heading-section gallery__heading">Places We’ve Been</h2>
       </section>
-      <section class="place" id="place" data-animate="animate__jackInTheBox">
+      <section class="place" id="little-things" data-animate="animate__jackInTheBox">
         <p class="gallery__desc">the little things that make us, us</p>
         <h2 class="heading-section gallery__heading">Little Things About Us</h2>
       </section>
@@ -1099,10 +1108,14 @@
             </div>
 
             <form action="" id="discord-form" class="contact__card">
+              <p id="message-status" class="message-status" role="status" aria-live="polite"></p>
               <h3 class="contact__card-heading">Whispers of the Heart</h3>
               <textarea
                 name=""
                 id="message"
+                aria-label="Lời nhắn của bạn"
+                maxlength="2000"
+                required
                 placeholder="Enter your message here..."
                 class="contact__content"
                 rows="10"
@@ -1112,7 +1125,7 @@
                 class="contact__btn animate__animated animate__bounce"
                 type="submit"
               >
-                Send Message
+                Copy your message
                 <span class="btn__icon"
                   ><i class="fa-solid fa-paper-plane" style="color: #ffffff"></i
                 ></span>
@@ -1448,38 +1461,7 @@
         }
       });
     </script>
-    <script>
-      const form = document.getElementById("discord-form");
-      form.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const message = document.getElementById("message").value;
-
-        const webhookURL =
-          "https://discord.com/api/webhooks/1399293230788509836/ba-fwq4oOV8UZoxMMgg8mlPIX69hq42fUzyziJW2pctsPn7Jcb0pLWj4KxMSIOF1DAHA";
-
-        fetch(webhookURL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            content: message,
-          }),
-        })
-          .then((res) => {
-            if (res.ok) {
-              alert("✅ Tin nhắn đã gửi lên Discord!");
-              form.reset();
-            } else {
-              alert("❌ Gửi thất bại.");
-            }
-          })
-          .catch((err) => {
-            console.error("Lỗi khi gửi Discord:", err);
-            alert("❌ Lỗi kết nối.");
-          });
-      });
-    </script>
+    <!-- Contact message handling is in experience.js. No public webhook secrets. -->
     <script>
       const texts = ["Thanh Long", "n.longg1805"];
       let count = 0;
@@ -1542,6 +1524,7 @@
           .forEach((el) => observer.observe(el));
       });
     </script>
+    <script src="./assess/js/experience.js" defer></script>
     <!-- Swiper Js  -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
@@ -1569,5 +1552,6 @@
         },
       });
     </script>
+      <button class="back-to-top" type="button" aria-label="Quay lên đầu trang">↑</button>
   </body>
 </html>
