@@ -85,6 +85,9 @@
       pending,
       gifted,
       valid: Boolean(toEmail && cleanSubject && selected.length),
+      selected,
+      people,
+      personalNote: cleanNote,
     };
   }
 
