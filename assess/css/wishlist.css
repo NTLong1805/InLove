@@ -195,3 +195,35 @@
   .wishlist__preview-inner { padding:10px; }
   .wishlist__preview-inner textarea { min-height:225px; padding:12px; font-size:12px; }
 }
+
+/* Rich HTML email preview — mirrors the card layout that is copied to Gmail. */
+.wishlist__rich-caption {
+  margin:0 0 10px; color:#8b5875; font-size:13px; line-height:1.65;
+}
+.wishlist__rich-preview {
+  display:block; width:100%; height:470px;
+  border:1px solid #f0d2e0; border-radius:14px; background:#fff3f8;
+}
+.wishlist__text-fallback {
+  margin-top:15px; border:1px dashed #e6c7d6; border-radius:12px;
+}
+.wishlist__text-fallback summary {
+  cursor:pointer; padding:12px 14px; font-weight:600; font-size:12px; color:#8c5370;
+}
+.wishlist__text-fallback[open] summary { border-bottom:1px dashed #e6c7d6; }
+.wishlist__text-fallback label { display:block; margin:10px; }
+.wishlist__text-fallback textarea { width:calc(100% - 20px); margin:0 10px 10px; }
+.wishlist__paste-hint {
+  margin:17px 0 0; color:#824c68; background:#fff;
+  border:1px solid #eed3e0; border-radius:14px;
+  padding:14px 16px; font-size:13px; line-height:1.8;
+}
+.wishlist__paste-hint kbd {
+  display:inline-block; min-width:22px; text-align:center;
+  padding:1px 5px; font-family:inherit; color:#a94479; font-weight:700;
+  background:#fff0f6; border:1px solid #ecd0de; border-radius:5px;
+}
+@media(max-width:630px) {
+  .wishlist__rich-preview { height:450px; }
+  .wishlist__paste-hint { font-size:12px; padding:12px; }
+}
