@@ -127,6 +127,7 @@
     <link rel="stylesheet" href="./assess/css/experience.css" />
     <!-- Swiper Css -->
     <link rel="stylesheet" href="./assess/css/swiper.css" />
+    <link rel="stylesheet" href="./assess/css/wishlist.css" />
   </head>
   <body>
     <a class="skip-link" href="#home">Bỏ qua điều hướng</a>
@@ -157,6 +158,7 @@
               <li class="item">
                 <a href="#gallery" class="item-link">Gallery</a>
               </li>
+              <li class="item"><a href="#wishlist" class="item-link">Wishlist</a></li>
             </ul>
           </nav>
           <a href="#contact" class="btn-grad header__cta">Send Message</a>
@@ -182,6 +184,7 @@
             <li class="item">
               <a href="#gallery" class="item-link">Gallery</a>
             </li>
+              <li class="item"><a href="#wishlist" class="item-link">Wishlist</a></li>
             <li class="item">
               <a href="#contact" class="item-link">Contact</a>
             </li>
@@ -690,17 +693,97 @@
           <a href="./places.html" class="btn diary__btn" title="Xem thêm địa điểm kỷ niệm">Explore places ♡</a>
         </div>
       </section>
-      <section class="grow" id="grow" data-animate="animate__jackInTheBox">
-        <p class="gallery__desc">We are learning to love each other better</p>
-        <h2 class="heading-section gallery__heading">Let’s Grow Together</h2>
+      <section class="place memory-place" id="place" data-animate="animate__fadeInUp">
+        <div class="container">
+          <p class="gallery__desc">every place has a memory</p>
+          <h2 class="heading-section gallery__heading">Places We’ve Been</h2>
+          <p class="memory-place__intro">
+            Từng nơi chúng mình đã đi qua đều giữ lại một câu chuyện nhỏ.
+            Cùng mở cuốn nhật ký những nơi đặc biệt ấy nhé ♡
+          </p>
+          <a class="memory-place__link" href="./places.html">
+            Explore our places <span aria-hidden="true">↗</span>
+          </a>
+        </div>
       </section>
-      <section class="place" id="place" data-animate="animate__jackInTheBox">
-        <p class="gallery__desc">every place has a memory</p>
-        <h2 class="heading-section gallery__heading">Places We’ve Been</h2>
-      </section>
-      <section class="place" id="little-things" data-animate="animate__jackInTheBox">
-        <p class="gallery__desc">the little things that make us, us</p>
-        <h2 class="heading-section gallery__heading">Little Things About Us</h2>
+
+      <section class="wishlist" id="wishlist" aria-labelledby="wishlist-heading" data-animate="animate__fadeInUp">
+        <div class="container">
+          <p class="wishlist__eyebrow">little surprises, made with love ♡</p>
+          <h2 class="heading-section gallery__heading wishlist__heading" id="wishlist-heading">
+            Our Gift Wishlist
+          </h2>
+          <p class="wishlist__intro">
+            Một góc nhỏ để lưu những món quà muốn dành cho nhau.
+            Không cần thật lớn lao — chỉ cần có người luôn nhớ đến người kia.
+          </p>
+
+          <div class="wishlist__shell">
+            <div class="wishlist__head">
+              <div class="wishlist__tabs" role="tablist" aria-label="Danh sách quà tặng dành cho ai">
+                <button class="wishlist__tab" id="wishlist-tab-thu" type="button"
+                  role="tab" aria-controls="wishlist-panel" aria-selected="true"
+                  data-recipient="thu">🎀 Tặng Thư</button>
+                <button class="wishlist__tab" id="wishlist-tab-long" type="button"
+                  role="tab" aria-controls="wishlist-panel" aria-selected="false"
+                  data-recipient="long" tabindex="-1">🎁 Tặng Long</button>
+              </div>
+              <div class="wishlist__stats" aria-live="polite">
+                <span><strong id="wishlist-total">0</strong> ý tưởng</span>
+                <span><strong id="wishlist-gifted">0</strong> món đã tặng</span>
+              </div>
+            </div>
+
+            <div id="wishlist-panel" role="tabpanel" aria-labelledby="wishlist-tab-thu" tabindex="0">
+              <div class="wishlist__grid" id="wishlist-grid"></div>
+              <p class="wishlist__empty" id="wishlist-empty" hidden>
+                <span class="wishlist__empty-icon" aria-hidden="true">♡</span>
+                Chưa có món quà nào. Thêm một điều ước thật dễ thương ở bên dưới nhé!
+              </p>
+            </div>
+
+            <form class="wishlist__form" id="wishlist-form">
+              <h3 class="wishlist__form-title">Add a little wish ♡</h3>
+              <p class="wishlist__form-caption">Thêm món quà cho người bạn đang chọn phía trên.</p>
+              <div class="wishlist__fields">
+                <div class="wishlist__field">
+                  <label for="wishlist-name">Tên món quà *</label>
+                  <input id="wishlist-name" type="text" maxlength="80" required
+                    placeholder="Ví dụ: Một chiếc máy ảnh mini..." autocomplete="off" />
+                </div>
+                <div class="wishlist__field">
+                  <label for="wishlist-category">Loại quà</label>
+                  <select id="wishlist-category">
+                    <option value="other">🎁 Món quà</option>
+                    <option value="flowers">🌷 Hoa & cây</option>
+                    <option value="memories">📸 Kỷ niệm</option>
+                    <option value="date">💌 Buổi hẹn</option>
+                    <option value="book">📖 Sách</option>
+                  </select>
+                </div>
+                <div class="wishlist__field wishlist__field--full">
+                  <label for="wishlist-url">Link tham khảo (không bắt buộc)</label>
+                  <input id="wishlist-url" type="url" maxlength="500"
+                    placeholder="https://..." inputmode="url" />
+                </div>
+                <div class="wishlist__field wishlist__field--full">
+                  <label for="wishlist-note">Lời nhắn nhỏ (không bắt buộc)</label>
+                  <textarea id="wishlist-note" rows="2" maxlength="180"
+                    placeholder="Vì sao mình muốn tặng món quà này..."></textarea>
+                </div>
+              </div>
+              <div class="wishlist__form-bottom">
+                <button class="wishlist__save" type="submit">＋ Save to our wishlist</button>
+                <p class="wishlist__feedback" id="wishlist-feedback" role="status" aria-live="polite"></p>
+              </div>
+            </form>
+          </div>
+          <p class="wishlist__privacy">
+            ♡ Danh sách được lưu trên trình duyệt hiện tại bằng localStorage.
+            Chưa tự đồng bộ giữa điện thoại, máy tính hoặc giữa Long và Thư.
+            Các món quà ban đầu chỉ là gợi ý mẫu và có thể xóa.
+          </p>
+        </div>
       </section>
       <section class="quote" id="quote" data-animate="animate__jackInTheBox">
         <div class="quote__header">
@@ -1183,6 +1266,7 @@
               <li class="item">
                 <a href="#gallery" class="item-link">Gallery</a>
               </li>
+              <li class="item"><a href="#wishlist" class="item-link">Wishlist</a></li>
               <li class="item">
                 <a href="#contact" class="item-link">Send Message</a>
               </li>
@@ -1525,6 +1609,7 @@
       });
     </script>
     <script src="./assess/js/experience.js" defer></script>
+    <script src="./assess/js/wishlist.js" defer></script>
     <!-- Swiper Js  -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
